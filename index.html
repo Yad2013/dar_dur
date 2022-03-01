@@ -94,7 +94,7 @@ button:hover{
 .pressed{
   color:#f00;
   }
-#dau{
+#dau, #fnb{
 	font-size:30px;
   line-height:30%;
   }
@@ -331,6 +331,8 @@ function get_more(){
   document.getElementById("play").innerHTML=PLAY;
   var dau=red==0?"داو":"دا<a class=red>و</a>";
   var hnw=`<button id=dau onclick="highlight()">${dau}</button`;
+  const ddd="دارا";
+  var fnb=`<button id=fnb onclick="change_font()">${ddd}</button`;
   var voice=rd=="t"?"<button class=red onclick=voice('t')>Tara</button> <button onclick=voice('y')>Yad</button>":"<button onclick=voice('t')>Tara</button> <button class=red onclick=voice('y')>Yad</button>";
   const t=`
 <h2>Settings</h2>
@@ -342,6 +344,9 @@ Voice: </td><td align=right>${voice}</td>
 </tr>
 <tr>
 <td>Hightlight New Letters: </td><td align=right>${hnw}</<td>
+</tr>
+<tr>
+<td>Change Font: </td><td align=right>${fnb}</<td>
 </tr>
 </table>
 </div>
@@ -355,10 +360,11 @@ p: Play lesson<br>
 t: Tara voice<br>
 y: Yad voice (now lesson 1 and 5)<br>
 r: Red highlight of new letter<br>
-l: Letters<br>
-w: Letters and words<br>
-m: Menu toggle<br>
+f: Font change<br>
 h: Horizontal line toggle (some lessons)<br>
+l: Letters<br>
+w: Words and letters<br>
+m: Menu toggle<br>
 s: Settigs page<br>
 b: Back to lesson (from settings)<br>
 </div>
@@ -366,12 +372,14 @@ b: Back to lesson (from settings)<br>
 <div class=etxt>
 Text entry: Yad<br>
 Coding: Yad (with some help from dad)<br>
-Voice: Tara (10 years old in 1998) and Yad (8 years old in 2021)<br>
-Animation: Karzan (12 years old in 1998)<br>
-Audio recording and processing: Fadhil (1998)<br>
+Voice: Yad (9 years old in 2022)<br>
+Audio recording and processing: Yad<br><br>
+<a href=https://montessorikurdistan.com target=_blank>Montessori Kurdistan</br>
 </div>
   `;
   document.getElementById("txt").innerHTML=t;
+  document.getElementById("dau").style=`font-family:${fnf}`;
+  document.getElementById("fnb").style=`font-family:${fnf}`;
   }
 
 function get_char_grid(m){
@@ -421,7 +429,6 @@ function load_page(){
   document.getElementById("txt").style.fontSize=fs+"px";
   if(i==1 || i==2 || i==3) document.getElementById("bd").style.textAlign="center";
   const lha=[15,16,17,18,19,20,21,22,23];
-  console.log(i);
   if(lha.includes(i)) {
     // document.getElementById("cc").style.lineHeight="40%";
     document.getElementById("bd").style.lineHeight="200%";
