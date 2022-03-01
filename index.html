@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+ font-family: amiri;
+ src: url('res/amiri-regular.woff');
+}
+#pic{
+	width:100%;
+	}
+#lno{
+  font-family:amiri;
+	font-size:20px;
+  direction:rtl;
+  position:absolute;
+  top:0px;
+  left:10px;
+	}
+#txt{
+  font-family:amiri;
+	font-size:40px;
+	width:100%;
+	text-align:center;
+  direction:rtl;
+  line-height:180%;
+	}
+a:hover{
+	color:red;
+	cursor:pointer;
+	}
+#bd{
+	text-align:right;
+  direction:rtl;
+  line-height:150%;
+  padding:10px;
+	}
+#ft{
+  border:0px red solid;
+  width:100%;
+  text-align:left;
+  direction:ltr;
+  display:flex;
+	}
+#cp{
+	height:40px;
+	}
+#cc{
+  color:#fff;
+  background-color:#00f;
+  width:150px;
+  height:150px;
+  border-radius:75px;
+  margin:20px;
+	font-size:40px;
+  line-height:170%;
+  text-align: center;
+ }
+#ftb{
+  width:100%;
+  text-align:center;
+  line-height:150%;
+  position:fixed;
+  bottom:4px;
+  transition: bottom 0.3s;
+	}
+#cvs{
+  position:absolute;
+  top:0px;
+  right:0px;
+  z-index:-1;
+  border:0px gray solid;
+	}
+button{
+  width:60px;
+  height:40px;
+  border-radius:4px;
+  border:1px solid #aaa;
+ }
+button:hover{
+  background:#ddd;
+  }
+.pressed{
+  color:#f00;
+  }
+#dau{
+  font-family:amiri;
+	font-size:30px;
+  line-height:30%;
+  }
+.red{
+  color:#f00;
+  }
+h2{
+  font-family:arial;
+	font-size:20px;
+	width:100%;
+	text-align:left;
+  line-height:100%;
+  margin-top:20px;
+  margin-bottom:4px;
+	}
+.etxt{
+  font-family:arial;
+	font-size:18px;
+	direction:ltr;
+	text-align:left;
+  line-height:100%;
+	}
+.cg{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  }
+.cgw{
+  display: grid;
+  grid-template-columns: auto;
+  }
+.ce{
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size:60px;
+  line-height:160%;
+  padding:10px;
+  }
+.cew{
+  text-align: center;
+  font-size:24px;
+  line-height:100%;
+  padding:2px;
+  }
+table{
+  width:100%;
+  }
+td{
+  width:33%;
+  }
+img{
+  vertical-align:middle;
+  }
+@media screen and (orientation:landscape) {
+	#pic{
+		float:left;
+		width:50%;
+		}
+	#txt{
+		float:left;
+		font-size:80px;
+		width:50%;
+    line-height:180%;
+	  }
+ .cc{
+    color:#fff;
+    background-color:#00f;
+    width:200px;
+    height:200px;
+    border-radius:150px;
+    margin:20px;
+    font-size:60px;
+    line-height:170%;
+    text-align: center;
+    }
+  .cgw{
+    display: grid;
+    grid-template-columns: auto auto;
+    }
+ }
+</style>
+</head>
+<body ondblclick="toggle_buttons()">
+<div id=con>
+<div id=lno></div>
+<div id=pic>
+<img id=imageid src="res/p01.jpg" onclick="load_page()" width=100%>
+</div>
+
+<div id=txt></div>
+</div>
+<div style="height:50px;"></div>
+<div id=ftb>
+<button id=more onclick="get_more()">
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+</button>
+
+<button onclick="gototoc()">
+ <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"></path></svg>
+ </button>
+ <!--
+ -->
+ <button id=play onclick="play_lesson()">
+ <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"></path><path d="M8 5v14l11-7z"></path></svg>
+ </button>
+ <button onclick="prev()">
+ <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+ </button>
+ <button onclick="next()">
+ <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"></path></svg>
+ </button>
+</div>
+
+<script>
+const la=[
+ "nauerok||",
+ "dar| dar dar dar|",
+ "dur| dar dur dar dur # dud # dud dar dud| dur # u",
+ "daran| daran daran # nar # nar nur| daran # n",
+ "dada dud| dada dada dud # dar daran dur|",
+ "zad| zad dada, zad zuzu # dar dur, nar nur| zad # z",
+ "nuri:| razi: # nuri: # zarani:| nuri: # i:",
+ "zi_r| zi_r zi_ri: # zi_ran # nuri: nuri: # zi_ri: zi_ri:| zi_r # i_",
+ "razi:| razi: zar nuri: # nuri: zar razi: # dada dada # razi:, nuri:, zuzu zaruna|",
+ "nar nur| nar, nur # nir, niran # dinar, dinaran|",
+ "di_na| di_na duri: nazdar # nuri: zar nazdar # razi: zar di_na|",
+ "di_na| di_na, nuri:, razi: zaruni: # di_nari: # di_nar zuzu # di_naran|",
+ "nar nar| di_na, zuzu, nuri:, razi: # niran, niran # dar di_na dari: # zad nuri: zadi:|",
+ "zab| bab # bab dar razi: # bab baban babi: # baz bazi: # nab nabi:| juur # j",
+ "bazan| bazan # bir # buran # baba baba bazan # bazi: baz buran # bir dar nuri:|",
+ "r~bab b~dran| b~dran zar r~bab # r~bab zuri: buran # razi: zad~ d~naniri:| r~bab # ~",
+ "b~_dri: b~_din| b~_dri: b~_din # nuri: r~zin # zadi: z~bib # razi: r~bib b~dri: # dar r~bab|",
+ "bum| n~dim nam~ # r~z~m~ nuri: b~ridi:| bum # m",
+ "m_izan| m_izan # m_~nam r~m_zi: # m_~nam m_~rdan # ma nam~ n~dim| m_izan # m_",
+ "buq|  # | buq # q",
+"qdri:|  # |",
+ "q~_d$uri:| q~_d$uri: q~_z$az # q~_dri: r~b$ana # nuri: b~_z$az # r~z$uq d~q$ bab~_na # mizan # q~_b$an| q~_d$uri: # $",
+ "q@_rd| ram@_z q~d@m m@n dar@na # m~_r$~ maz@n m@n d~rb@na # qad@r d~r$~b~ bazi: # m@nqar # m@br~d| q@_rd # @",
+"d&b| z&nbur # z&rzur # r&z # r&m$an # q&m nuri:, z&r m&nir # m&_rad m&dir q~dir| d&b # &",
+ " `nuan | cmle auli # cmle tanie | klme # h^rf ",
+ " `nuan | cmle auli # cmle tanie | klme # h^rf ",
+ " `nuan | cmle auli # cmle tanie | klme # h^rf ",
+ " `nuan | cmle auli # cmle tanie | klme # h^rf ",
+ " `nuan | cmle auli # cmle tanie | klme # h^rf "
+ ];
+
+const ca=[
+ "|||",
+ "~_|~au||10",
+ "a|dar|A|1",
+ "b|bab_e|B|21",
+ "p|p_s^e|P|31",
+ "t|t_eiare|T|23",
+ "c|c_o|J|48",
+ "c^|c^alak|CH|50",
+ "h^|h^_elua||54",
+ "x|x_urma|KH|52",
+ "d|dar|D|1",
+ "r|dar|R|1",
+ "r^|r^au||12",
+ "z|zara|Z|8",
+ "j|juur|ZH|13",
+ "s|s_i^u|S|25",
+ "s^|s^_uus^e|SH|27",
+ "`|`_elis^is^||56",
+ "`^|`^ar`^ari^n||58",
+ "f|f_r^f_r^oke||43",
+ "v|vr^evr^||46",
+ "q|qaz||40",
+ "k|k_eu||29",
+ "g|g_ia||33",
+ "l|l_m||35",
+ "l^|kal^_ek||37",
+ "m|m_er^||19",
+ "n|nazi^||17",
+ "h_|h_i^lke||36",
+ "e|uere||6",
+ "u|dau||5",
+ "uu|duu||7",
+ "o|do||9",
+ "i|dari di||4",
+ "i^|deri^||11",
+ "la|gelaui^j||41",
+ "l^a|gel^a||44"
+ ];
+
+const PAUSE="<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#000000'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M6 19h4V5H6v14zm8-14v14h4V5h-4z'/></svg>";
+const PLAY="<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='currentColor'><path d='M0 0h24v24H0z' fill='none'></path><path d='M8 5v14l11-7z'></path></svg>";
+
+var i=1;
+var rd="t";
+var red=1;
+var hlf=0;
+var qs=window.location.search;
+qs=qs.replaceAll("?","");
+var qsa=qs.split("&")
+var qpa={};
+for(j in qsa) {
+  tqa=qsa[j].split("=");
+  qpa[tqa[0]]=tqa[1]
+  }
+if("lesson" in qpa) {i=qpa["lesson"]; localStorage.setItem("DARA_LESSON_NO", i);}
+
+if(localStorage.getItem("DARA_LESSON_NO")===null) localStorage.setItem("DARA_LESSON_NO", 1); else i=localStorage.getItem("DARA_LESSON_NO");
+if(localStorage.getItem("DARA_LESSON_VOICE")===null) localStorage.setItem("DARA_LESSON_VOICE", rd); else rd=localStorage.getItem("DARA_LESSON_VOICE");
+if(localStorage.getItem("DARA_LESSON_RED")===null) localStorage.setItem("DARA_LESSON_RED", red); else red=localStorage.getItem("DARA_LESSON_RED");
+
+
+window.onload=load_page();
+
+function ps(id){
+  var aid="a"+id;
+	// document.getElementById(aid).play();
+  var audio = new Audio("res/"+rd+"/a"+id+".mp3");
+  audio.play();
+	}
+
+function next(){
+ if(i<la.length) i++;
+ localStorage.setItem("DARA_LESSON_NO", i)
+ k=0;
+ playing=1;
+ load_page()
+ }
+ 
+function prev(){
+ if(i>0) i--;
+ localStorage.setItem("DARA_LESSON_NO", i)
+ k=0;
+ playing=1;
+ load_page()
+ }
+
+function get_more(){
+  clearTimeout(timer);
+  k=0;
+  document.getElementById("play").innerHTML=PLAY;
+  var dau=red==0?"داو":"دا<a class=red>و</a>";
+  var hnw=`<button id=dau onclick="highlight()">${dau}</button`;
+  var voice=rd=="t"?"<button class=red onclick=voice('t')>Tara</button> <button onclick=voice('y')>Yad</button>":"<button onclick=voice('t')>Tara</button> <button class=red onclick=voice('y')>Yad</button>";
+  const t=`
+<h2>Settings</h2>
+<div class=etxt>
+<table>
+<tr valign=top>
+<td>
+Voice: </td><td align=right>${voice}</td>
+</tr>
+<tr>
+<td>Hightlight New Letters: </td><td align=right>${hnw}</<td>
+</tr>
+</table>
+</div>
+<h2>Shortcuts</h2>
+<div class=etxt>
+Arrows: Next and previous lessons<br>
+Escape: Hide menu<br>
+Numbers 1-9: Go to lesson<br>
+Number 0: Contents<br>
+p: Play lesson<br>
+t: Tara voice<br>
+y: Yad voice (now lesson 1 and 5)<br>
+r: Red highlight of new letter<br>
+l: Letters<br>
+w: Letters and words<br>
+m: Menu toggle<br>
+h: Horizontal line toggle (some lessons)<br>
+s: Settigs page<br>
+b: Back to lesson (from settings)<br>
+</div>
+<h2>Credits</h2>
+<div class=etxt>
+Text entry: Yad<br>
+Coding: Yad (with some help from dad)<br>
+Voice: Tara (10 years old in 1998) and Yad (8 years old in 2021)<br>
+Animation: Karzan (12 years old in 1998)<br>
+Audio recording and processing: Fadhil (1998)<br>
+</div>
+  `;
+  document.getElementById("txt").innerHTML=t;
+  }
+
+function get_char_grid(m){
+  clearTimeout(timer);
+  k=0;
+  document.getElementById("play").innerHTML=PLAY;
+  var t;
+  t=m==2?"<div class=cgw>":"<div class=cg>";
+  for(j=1; j<ca.length; j++){
+    cea=ca[j].split("|");
+    cet=eng_to_kur(cea[0]);
+    cew=eng_to_kur(cea[1]);
+    if(red) cew=cew.replaceAll(cet,"<span class=red>"+cet+"</span>");
+    var n=cea[3];
+    var n0=n.toString();
+    n0=n0.padStart(2,"0");
+    t+=m==2?" <div class=ce><table><tr><td><a onclick='goto("+n+")'>"+cet+"</a></td><td><div class=cew>"+cew+"</div></td><td valign=bottom><img src=res/p"+n0+".jpg height=80px></td></tr></table></div> ":"<div class=ce><a onclick='goto("+n+")'>"+cet+"</a></div>";
+    }
+  t+="</div>"
+  document.getElementById("imageid").src="res/p00.jpg";
+  document.getElementById("txt").innerHTML=t;
+  }
+
+function load_page(){
+  var is=i.toString();
+  var i0=is.padStart(2,"0");
+  document.getElementById("imageid").src="res/p" + i0 + ".jpg";
+  var t=la[i];
+  var ta=t.split("|");
+  t=eng_to_kur(t);
+  t=add_tags(t);
+  if(i==0) t=toc();
+  t+="<canvas id=cvs></canvas>";
+  document.getElementById("txt").innerHTML=t;
+  var lno=i>0?eng_to_kur(is):"";
+  document.getElementById("lno").innerHTML=lno;
+  const fsa=[40,70,70,60,60,60,50,48,50,50,50,50,45];
+  var fs=40;
+  if(i>12) fs=fsa[0]; else fs=fsa[i];
+  if(!is_mobile()) fs=fs*1.4;
+  document.getElementById("txt").style.fontSize=fs+"px";
+  if(i==1 || i==2 || i==3) document.getElementById("bd").style.textAlign="center";
+  const lha=[15,16,17,18,19,20,21,22,23];
+  if(lha.includes(i)) {
+    // document.getElementById("cc").style.lineHeight="40%";
+    document.getElementById("bd").style.lineHeight="250%";
+    } else document.getElementById("bd").style.lineHeight="150%";
+  if(hlf && (i==4 || i==5 || i==15 || i==16)){
+    var cvs=document.getElementById("cvs");
+    cvs.width=680;
+    cvs.height=600;
+    var ctx=cvs.getContext("2d");
+    ctx.lineWidth=1;
+    ctx.strokeStyle="#ccc";
+    var hla=[103,251,378];
+    if(i==15 || i==16) hla=[71,173,257,341,425];
+    for (j in hla){
+      var ht=hla[j];
+      ctx.beginPath();
+      ctx.moveTo(0, ht);
+      ctx.lineTo(680, ht);
+      ctx.stroke();
+      }
+    }
+  if(i==32 || i==41 || i==42 || i==43 || i==44) {
+    document.getElementById("cc").style.lineHeight="200%";
+    }
+  }
+
+function gototoc(){
+ i=0;
+ prev();
+ }
+
+function goto(lc){
+ i=lc-1;
+ next();
+ }
+ 
+function toc(){
+ var rv="<div id=bd>";
+ var pit="alh^ruf";
+ pit=eng_to_kur(pit);
+ rv+="<a onclick='get_char_grid(1)'>"+pit+"</a><br>"
+ pit="alh^ruf u alklmat";
+ pit=eng_to_kur(pit);
+ rv+="<a onclick='get_char_grid(2)'>"+pit+"</a><br>"
+ for (var j=1;j<la.length;j++){
+ var ta=la[j].split("|");
+ if(ta[0]=="") ta[0]="dara dara";
+ var t=eng_to_kur(ta[0]);
+ var jk=eng_to_kur(j+"");
+ tt=jk+". <a onclick='goto("+j+")'>"+t+"</a><br>";
+ rv+=tt;
+ }
+ rv+="</div>";
+ rv=rv.replaceAll("+"," ");
+ return rv;
+ }
+
+document.addEventListener("keydown",event=>{
+  if (event.key==="ArrowRight") next();
+  if (event.key==="ArrowLeft") prev();
+  if (event.key==="Escape") document.getElementById("ftb").style.bottom = "-50px";
+  
+  if (event.key==="b") load_page();
+  if (event.key==="p") play_lesson();
+  if (event.key==="s") get_more();
+  if (event.key==="l") get_char_grid(1);
+  if (event.key==="w") get_char_grid(2);
+  if (event.key==="h") {hlf=!hlf; load_page();}
+  if (event.key==="t") {rd="t"; load_page(); localStorage.setItem("DARA_LESSON_VOICE", rd);}
+  if (event.key==="y") {rd="y"; load_page(); localStorage.setItem("DARA_LESSON_VOICE", rd);}
+  if (event.key==="m") if(document.getElementById("ftb").style.bottom=="4px") document.getElementById("ftb").style.bottom="-50px"; else document.getElementById("ftb").style.bottom="4px";
+  
+  if (event.key==="r") {if(red==0) red=1; else red=0; localStorage.setItem("DARA_LESSON_RED", red); load_page();}
+  
+  if (event.key > -1 && event.key < 10){
+    i=event.key;
+    i++;
+    prev();
+    }
+  });
+
+function highlight(){
+  if(red==0) red=1; else red=0;
+  localStorage.setItem("DARA_LESSON_RED", red);
+  load_page();
+  }
+
+function voice(v){
+  if(rd=="t") rd="y"; else rd="t";
+  localStorage.setItem("DARA_LESSON_VOICE", rd);
+  load_page();
+  }
+
+function add_tags(t){
+ var rv="";
+ var wa=t.split(" ");
+ var k=0;
+ for (j in wa){
+   var i0=i.toString();
+   var i0=i0.padStart(2,"0");
+   var k0=k.toString();
+   var k0=k0.padStart(2,"0");
+   var w=wa[j];
+   var tw="";
+   var lc=w.slice(-1);
+   if(lc=="."|| lc=="،"|| lc=="!"|| lc=="؟"|| lc=="|") {
+     w=w.slice(0,-1);
+     tw="<a id=w"+i0+k0+" onclick=ps('"+i0+k0+"')>"+w+"</a>"+lc+" ";
+    } else{
+     tw="<a id=w"+i0+k0+" onclick=ps('"+i0+k0+"')>"+w+"</a> ";
+    }
+   if(w=="|" || w=="#" || w=="-" || w==" ") tw=w+" ";
+   rv+=tw;
+   if(w!="|" && w!="#" && w!="-") k++
+ }
+ var a=rv.split("|");
+ var tt="<div id=tt>"+a[0]+"</div>";
+ var bd="<div id=bd>"+a[1]+"</div>";
+ var cc="<div id=ft><div id=cc>"+a[2]+"</div>"; //<div id=cp><img src='res/p"+i0+".jpg' width=100px></div></div>";
+ if(a[2].trim()=="") cc="";
+ rv=tt+bd+cc;
+ rv=rv.replaceAll("#","<br>");
+ rv=rv.replaceAll("+"," ");
+ var cl=wa[wa.length-1];
+ // console.log(red);
+ if(red!=0 && i>0){
+  rv=rv.replaceAll(cl,"<span class=red>"+cl+"</span>");
+  clt=cl.replaceAll("ـ","");
+  const al="ا";
+  rv=rv.replaceAll(clt+al,"<span class=red>"+clt+"</span>"+al);
+  }
+ return rv;
+ }
+ 
+var timer=0;
+var k=0;
+function play_lesson(){
+  if(timer>0) {
+    clearTimeout(timer);
+    k=0;
+    document.getElementById("play").innerHTML=PLAY;
+//    load_page();
+    location.reload();
+    }
+  if(timer==0){
+    play_lesson_recursive();
+    }
+  }
+function play_lesson_recursive(){
+  load_page();
+  var tp=1200; // time play
+  document.getElementById("play").innerHTML=PAUSE;
+  var wa=get_word_array(la[i]);
+  var c=wa.length;
+  var kp=0;
+  var i0=i.toString();
+  var i0=i0.padStart(2,"0");
+  var k0=k.toString();
+  var k0=k0.padStart(2,"0");
+  if (k>0) kp=k-1;
+  var k1=kp.toString();
+  var k1=k1.padStart(2,"0");
+  document.getElementById("w"+i0+k1).style.color="";
+  document.getElementById("w"+i0+k0).style.color="#f00";
+  ps(""+i0+k0);
+  var syl=get_sylables(wa[k]);
+  if(syl>2) tp=1800;
+  console.log(`c:${c}, k:${k}, tp:${tp},${wa[k]}:${timer}`);
+  k++;
+  if(k<c) timer=setTimeout(play_lesson_recursive, tp); else {
+    clearTimeout(timer);
+    k=0;
+    document.getElementById("play").innerHTML=PLAY;
+    location.reload();
+    }
+  }
+
+function get_sylables(t){
+  t=t.replaceAll("ui^","wi^")
+  t=t.replaceAll("^","")
+  t=t.replaceAll("_","")
+  t=t.replaceAll("uu","u")
+  t=t.replaceAll("au","aw")
+  t=t.replaceAll("ai","ay")
+  t=t.replaceAll("oi","oy")
+  t=t.replaceAll("ei","ey")
+  t=t.replaceAll("ua","wa")
+  t=t.replaceAll("ue","we")
+  t=t.replaceAll("ia","ya")
+  var a=t.split("a").length-1;
+  var i=t.split("i").length-1;
+  var u=t.split("u").length-1;
+  var e=t.split("e").length-1;
+  var o=t.split("o").length-1;
+  var p=t.split("+").length-1;
+  var bn=t.split("bn").length-1;
+  var nm=t.split("nm").length-1;
+  var nn=t.split("nn").length-1;
+//  console.log(t);
+  return a+i+e+u+o+p+bn+nm+nn;
+  }
+
+function get_word_array(t){
+  t=t.replaceAll("|","")
+  t=t.replaceAll("#","")
+  t=t.replaceAll("-","")
+  t=t.replaceAll(".","")
+  t=t.replaceAll(",","")
+  t=t.replaceAll("?","")
+  t=t.replaceAll("   "," ")
+  t=t.replaceAll("  "," ")
+  var a=t.split(" ");
+  return a;
+  }
+
+var prev_scroll_pos=window.pageYOffset;
+window.onscroll=function() {
+  var current_scroll_pos = window.pageYOffset;
+  if (prev_scroll_pos > current_scroll_pos) {
+  document.getElementById("ftb").style.bottom = "4px";
+  } else {
+  document.getElementById("ftb").style.bottom = "-50px";
+  }
+  prev_scroll_pos=current_scroll_pos;
+  }
+
+function toggle_buttons() {
+  var ftb=document.getElementById("ftb");
+  if (ftb.style.bottom=="4px") ftb.style.bottom = "-50px"; else ftb.style.bottom = "4px";
+  }
+
+function is_mobile() {
+  return window.innerHeight > window.innerWidth;
+  // return /Android|webOS|iPhone|BlackBerry|IEMobile/i.test(navigator.userAgent);
+  }
+
+function eng_to_kur(eng){
+ var kur=eng;
+ kur=kur.replaceAll("l^","ڵ");
+ kur=kur.replaceAll("s^","ش");
+ kur=kur.replaceAll("r^","ڕ");
+ kur=kur.replaceAll("i^","ێ");
+ kur=kur.replaceAll("i:","ي");
+ kur=kur.replaceAll("c^","چ");
+ kur=kur.replaceAll("h^","ح");
+ kur=kur.replaceAll("`^","غ");
+ kur=kur.replaceAll("j","ژ");
+ kur=kur.replaceAll("a","ا");
+ kur=kur.replaceAll("d","د");
+ kur=kur.replaceAll("r","ر");
+ kur=kur.replaceAll("u","و");
+ kur=kur.replaceAll("i","ی");
+ kur=kur.replaceAll("e","ه‌");
+ kur=kur.replaceAll("z","ز");
+ kur=kur.replaceAll(",","،");
+ kur=kur.replaceAll("o","ۆ");
+ kur=kur.replaceAll("i~","ئ");
+ kur=kur.replaceAll("n","ن");
+ kur=kur.replaceAll("k","ك");
+ kur=kur.replaceAll("_","ـ");
+ kur=kur.replaceAll("?","؟");
+ kur=kur.replaceAll("m","م");
+ kur=kur.replaceAll("b","ب");
+ kur=kur.replaceAll("t","ت");
+ kur=kur.replaceAll("s","س");
+ kur=kur.replaceAll("p","پ");
+ kur=kur.replaceAll("g","گ");
+ kur=kur.replaceAll("l","ل");
+ kur=kur.replaceAll("h","ه");
+ kur=kur.replaceAll("q","ق");
+ kur=kur.replaceAll("`","ع");
+ kur=kur.replaceAll("x","خ");
+ kur=kur.replaceAll("c","ج");
+ kur=kur.replaceAll("f","ف");
+ kur=kur.replaceAll("v","ڤ");
+ kur=kur.replaceAll("0","٠");
+ kur=kur.replaceAll("1","١");
+ kur=kur.replaceAll("2","٢");
+ kur=kur.replaceAll("3","٣");
+ kur=kur.replaceAll("4","٤");
+ kur=kur.replaceAll("5","٥");
+ kur=kur.replaceAll("6","٦");
+ kur=kur.replaceAll("7","٧");
+ kur=kur.replaceAll("8","٨");
+ kur=kur.replaceAll("9","٩");
+ kur=kur.replaceAll("~","َ");
+ kur=kur.replaceAll("@","ِ");
+ kur=kur.replaceAll("$","ّ");
+ kur=kur.replaceAll("&","ُ");
+ kur=kur.replaceAll("%","");
+// kur=kur.replaceAll("#","<br>");
+ return kur;
+ }
+
+</script>
+</body>
+</html>
+
+<!--
+=====
+TO-DO
+=====
+add more pages
+add more sound
+add translations
+
+====
+DONE
+====
+add line for calligraphy
+make settings: voice, lextter red
+add list of letters
+add list of letters, words and pictures
+add credits
+add lesson number
+add shortcut keys
+read lesson
+study letter become red
+make buttons work
+read each word separatly
+add buttons for read, next and content
+add static first lesson
+mouseover text color to red
+onclick read text
+font amiri
+responsive designs for portrait and landscape
+-->
