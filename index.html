@@ -8,11 +8,21 @@
  font-family: amiri;
  src: url('res/amiri-regular.woff');
 }
+@font-face {
+ font-family: noto;
+ src: url('res/noto.ttf');
+ }
+@font-face{
+font-family: simplified;
+src: url('res/arial.ttf');
+}
+#con{
+font-family:amiri;
+}
 #pic{
 	width:100%;
 	}
 #lno{
-  font-family:amiri;
 	font-size:20px;
   direction:rtl;
   position:absolute;
@@ -20,7 +30,6 @@
   left:10px;
 	}
 #txt{
-  font-family:amiri;
 	font-size:40px;
 	width:100%;
 	text-align:center;
@@ -86,7 +95,6 @@ button:hover{
   color:#f00;
   }
 #dau{
-  font-family:amiri;
 	font-size:30px;
   line-height:30%;
   }
@@ -94,7 +102,6 @@ button:hover{
   color:#f00;
   }
 h2{
-  font-family:arial;
 	font-size:20px;
 	width:100%;
 	text-align:left;
@@ -216,10 +223,10 @@ const la=[
  "nar nar| di_na, zuzu, nuri:, razi: # niran, niran # dar di_na dari: # zad nuri: zadi:|",
  "zab| bab # bab dar razi: # bab baban babi: # baz bazi: # nab nabi:| juur # j",
  "bazan| bazan # bir # buran # baba baba bazan # bazi: baz buran # bir dar nuri:|",
- "r~bab b~dran| b~dran zar r~bab # r~bab zuri: buran # razi: zad~ d~naniri:| r~bab # ~",
+ "r~bab b~dran| b~dran zar~ r~bab # r~bab zuri: buran # razi: zad~ d~naniri:| r~bab # ~",
  "b~_dri: b~_din| b~_dri: b~_din # nuri: r~zin # zadi: z~bib # razi: r~bib b~dri: # dar r~bab|",
  "bum| n~dim nam~ # r~z~m~ nuri: b~ridi:| bum # m",
- "m_izan| m_izan # m_~nam r~m_zi: # m_~nam m_~rdan # ma nam~ n~dim| m_izan # m_",
+ "m_izan| m_izan # m~_nam r~m_zi: # m~_nam m~_rdan # ma nam~ n~dim| m_izan # m_",
  "buq|  # | buq # q",
 "qdri:|  # |",
  "q~_d$uri:| q~_d$uri: q~_z$az # q~_dri: r~b$ana # nuri: b~_z$az # r~z$uq d~q$ bab~_na # mizan # q~_b$an| q~_d$uri: # $",
@@ -278,6 +285,7 @@ const PLAY="<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 2
 var i=1;
 var rd="t";
 var red=1;
+var fnt=0; // font 0: amiri 1: noto 2: simplified 
 var hlf=0;
 var qs=window.location.search;
 qs=qs.replaceAll("?","");
@@ -390,6 +398,11 @@ function get_char_grid(m){
   }
 
 function load_page(){
+  var con=document.getElementById("con");
+  if (fnt==0) fnf="amiri";
+  if (fnt==1) fnf="noto";
+  if (fnt==2) fnf="simplified";
+  con.style.fontFamily=fnf;
   var is=i.toString();
   var i0=is.padStart(2,"0");
   document.getElementById("imageid").src="res/p" + i0 + ".jpg";
@@ -402,16 +415,16 @@ function load_page(){
   document.getElementById("txt").innerHTML=t;
   var lno=i>0?eng_to_kur(is):"";
   document.getElementById("lno").innerHTML=lno;
-  const fsa=[40,70,70,60,60,60,50,48,50,50,50,50,45];
+  const fsa=[40,60,60,60,60,50,50,45];
   var fs=40;
-  if(i>12) fs=fsa[0]; else fs=fsa[i];
+  if(i>fsa.length) fs=fsa[0]; else fs=fsa[i];
   if(!is_mobile()) fs=fs*1.4;
   document.getElementById("txt").style.fontSize=fs+"px";
   if(i==1 || i==2 || i==3) document.getElementById("bd").style.textAlign="center";
   const lha=[15,16,17,18,19,20,21,22,23];
   if(lha.includes(i)) {
     // document.getElementById("cc").style.lineHeight="40%";
-    document.getElementById("bd").style.lineHeight="250%";
+    document.getElementById("bd").style.lineHeight="200%";
     } else document.getElementById("bd").style.lineHeight="150%";
   if(hlf && (i==4 || i==5 || i==15 || i==16)){
     var cvs=document.getElementById("cvs");
@@ -482,7 +495,8 @@ document.addEventListener("keydown",event=>{
   if (event.key==="m") if(document.getElementById("ftb").style.bottom=="4px") document.getElementById("ftb").style.bottom="-50px"; else document.getElementById("ftb").style.bottom="4px";
   
   if (event.key==="r") {if(red==0) red=1; else red=0; localStorage.setItem("DARA_LESSON_RED", red); load_page();}
-  
+  if (event.key==="f") change_font();
+
   if (event.key > -1 && event.key < 10){
     i=event.key;
     i++;
@@ -499,6 +513,13 @@ function highlight(){
 function voice(v){
   if(rd=="t") rd="y"; else rd="t";
   localStorage.setItem("DARA_LESSON_VOICE", rd);
+  load_page();
+  }
+
+function change_font() {
+  fnt++;
+  if(fnt>2) fnt=0; 
+  localStorage.setItem("DARA_LESSON_FONT", fnt);
   load_page();
   }
 
