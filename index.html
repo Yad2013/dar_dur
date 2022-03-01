@@ -175,7 +175,7 @@ img{
  }
 </style>
 </head>
-<body ondblclick="toggle_buttons()">
+<body ondblclick="toggle_buttons()" onload="load_page()">
 <div id=con>
 <div id=lno></div>
 <div id=pic>
@@ -208,36 +208,33 @@ img{
 
 <script>
 const la=[
- "nauerok||",
- "dar| dar dar dar|",
- "dur| dar dur dar dur # dud # dud dar dud| dur # u",
- "daran| daran daran # nar # nar nur| daran # n",
- "dada dud| dada dada dud # dar daran dur|",
- "zad| zad dada, zad zuzu # dar dur, nar nur| zad # z",
- "nuri:| razi: # nuri: # zarani:| nuri: # i:",
- "zi_r| zi_r zi_ri: # zi_ran # nuri: nuri: # zi_ri: zi_ri:| zi_r # i_",
- "razi:| razi: zar nuri: # nuri: zar razi: # dada dada # razi:, nuri:, zuzu zaruna|",
- "nar nur| nar, nur # nir, niran # dinar, dinaran|",
- "di_na| di_na duri: nazdar # nuri: zar nazdar # razi: zar di_na|",
- "di_na| di_na, nuri:, razi: zaruni: # di_nari: # di_nar zuzu # di_naran|",
- "nar nar| di_na, zuzu, nuri:, razi: # niran, niran # dar di_na dari: # zad nuri: zadi:|",
- "zab| bab # bab dar razi: # bab baban babi: # baz bazi: # nab nabi:| juur # j",
- "bazan| bazan # bir # buran # baba baba bazan # bazi: baz buran # bir dar nuri:|",
- "r~bab b~dran| b~dran zar~ r~bab # r~bab zuri: buran # razi: zad~ d~naniri:| r~bab # ~",
- "b~_dri: b~_din| b~_dri: b~_din # nuri: r~zin # zadi: z~bib # razi: r~bib b~dri: # dar r~bab|",
- "bum| n~dim nam~ # r~z~m~ nuri: b~ridi:| bum # m",
- "m_izan| m_izan # m~_nam r~m_zi: # m~_nam m~_rdan # ma nam~ n~dim| m_izan # m_",
- "buq|  # | buq # q",
-"qdri:|  # |",
- "q~_d$uri:| q~_d$uri: q~_z$az # q~_dri: r~b$ana # nuri: b~_z$az # r~z$uq d~q$ bab~_na # mizan # q~_b$an| q~_d$uri: # $",
- "q@_rd| ram@_z q~d@m m@n dar@na # m~_r$~ maz@n m@n d~rb@na # qad@r d~r$~b~ bazi: # m@nqar # m@br~d| q@_rd # @",
+"nauerok||",
+"dar| dar dar dar|",
+"dur| dar dur dar dur # dud # dud dar dud| dur # u",
+"daran| daran daran # nar # nar nur| daran # n",
+"dada dud| dada dada dud # dar daran dur|",
+"zad| zad dada, zad zuzu # dar dur, nar nur| zad # z",
+"nuri:| razi: # nuri: # zarani:| nuri: # i:",
+"zi_r| zi_r zi_ri: # zi_ran # nuri: nuri: # zi_ri: zi_ri:| zi_r # i_",
+"razi:| razi: zar nuri: # nuri: zar razi: # dada dada # razi:, nuri:, zuzu zaruna|",
+"nar nur| nar, nur # nir, niran # dinar, dinaran|",
+"di_na| di_na duri: nazdar # nuri: zar nazdar # razi: zar di_na|",
+"di_na| di_na, nuri:, razi: zaruni: # di_nari: # di_nar zuzu # di_naran|",
+"nar nar| di_na, zuzu, nuri:, razi: # niran, niran # dar di_na dari: # zad nuri: zadi:|",
+"zab| bab # bab dar razi: # bab baban babi: # baz bazi: # nab nabi:| zab # b",
+"bazan| bazan # bir # buran # baba baba bazan # bazi: baz buran # bir dar nuri:|",
+"r~bab b~dran| b~dran zar~ r~bab # r~bab zuri: buran # razi: zad~ d~naniri:| r~bab # ~",
+"b~_dri: b~_din| b~_dri: b~_din # nuri: r~zin # zadi: z~bib # razi: r~bib b~dri: # dar r~bab|",
+"bum| n~dim nam~ # r~z~m~ nuri: b~ridi:| bum # m",
+"m_izan| m_izan # m~_nam r~m_zi: # m~_nam m~_rdan # ma nam~ n~dim| m_izan # m_",
+"buq| buq m~rzuq # q~bqab # q~bqabi: # q~bqab dina # q~bqab r~mzi:| buq # q",
+"q~dri:| q~dri: qad~ b~q~r~na # qam~ n~dim # dari: q~rib # buqi: r~qiq |",
+"q~_d$uri:| q~_d$uri: q~_z$az # q~_dri: r~b$ana # nuri: b~_z$az # r~z$uq d~q$ bab~_na # mizan # q~_b$an| q~_d$uri: # $",
+"q@_rd| ram@_z q~d@m m@n dar@na # m~_r$~ maz@n m@n d~rb@na # qad@r d~r$~b~ bazi: # m@nqar # m@br~d| q@_rd # @",
 "d&b| z&nbur # z&rzur # r&z # r&m$an # q&m nuri:, z&r m&nir # m&_rad m&dir q~dir| d&b # &",
- " `nuan | cmle auli # cmle tanie | klme # h^rf ",
- " `nuan | cmle auli # cmle tanie | klme # h^rf ",
- " `nuan | cmle auli # cmle tanie | klme # h^rf ",
- " `nuan | cmle auli # cmle tanie | klme # h^rf ",
- " `nuan | cmle auli # cmle tanie | klme # h^rf "
- ];
+" `nuan | cmle auli # cmle tanie | klme # h^rf ",
+" `nuan | cmle auli # cmle tanie | klme # h^rf "
+];
 
 const ca=[
  "|||",
@@ -300,9 +297,10 @@ if("lesson" in qpa) {i=qpa["lesson"]; localStorage.setItem("DARA_LESSON_NO", i);
 if(localStorage.getItem("DARA_LESSON_NO")===null) localStorage.setItem("DARA_LESSON_NO", 1); else i=localStorage.getItem("DARA_LESSON_NO");
 if(localStorage.getItem("DARA_LESSON_VOICE")===null) localStorage.setItem("DARA_LESSON_VOICE", rd); else rd=localStorage.getItem("DARA_LESSON_VOICE");
 if(localStorage.getItem("DARA_LESSON_RED")===null) localStorage.setItem("DARA_LESSON_RED", red); else red=localStorage.getItem("DARA_LESSON_RED");
+if(localStorage.getItem("DARA_LESSON_FONT")===null) localStorage.setItem("DARA_LESSON_FONT", fnt); else fnt=localStorage.getItem("DARA_LESSON_FONT");
 
 
-window.onload=load_page();
+// window.onload=load_page();
 
 function ps(id){
   var aid="a"+id;
@@ -398,6 +396,7 @@ function get_char_grid(m){
   }
 
 function load_page(){
+  i=parseInt(i);
   var con=document.getElementById("con");
   if (fnt==0) fnf="amiri";
   if (fnt==1) fnf="noto";
@@ -422,10 +421,11 @@ function load_page(){
   document.getElementById("txt").style.fontSize=fs+"px";
   if(i==1 || i==2 || i==3) document.getElementById("bd").style.textAlign="center";
   const lha=[15,16,17,18,19,20,21,22,23];
+  console.log(i);
   if(lha.includes(i)) {
     // document.getElementById("cc").style.lineHeight="40%";
     document.getElementById("bd").style.lineHeight="200%";
-    } else document.getElementById("bd").style.lineHeight="150%";
+    } // else document.getElementById("bd").style.lineHeight="150%";
   if(hlf && (i==4 || i==5 || i==15 || i==16)){
     var cvs=document.getElementById("cvs");
     cvs.width=680;
@@ -554,8 +554,11 @@ function add_tags(t){
  rv=rv.replaceAll("#","<br>");
  rv=rv.replaceAll("+"," ");
  var cl=wa[wa.length-1];
- // console.log(red);
  if(red!=0 && i>0){
+  if(cl=="مـ"){
+    console.log(cl,rv);
+    rv=rv.replaceAll("م​َـ","<span class=red>م</span>\u064E<span class=red>ـ</span>");
+    }
   rv=rv.replaceAll(cl,"<span class=red>"+cl+"</span>");
   clt=cl.replaceAll("ـ","");
   const al="ا";
