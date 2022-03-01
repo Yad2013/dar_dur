@@ -694,11 +694,11 @@ function eng_to_kur(eng){
  kur=kur.replaceAll("7","٧");
  kur=kur.replaceAll("8","٨");
  kur=kur.replaceAll("9","٩");
- kur=kur.replaceAll("~","َ");
- kur=kur.replaceAll("@","ِ");
- kur=kur.replaceAll("$","ّ");
- kur=kur.replaceAll("&","ُ");
- kur=kur.replaceAll("%","");
+ kur=kur.replaceAll("~","\u200B\u064E");
+ kur=kur.replaceAll("@","\u200B\u0650");
+ kur=kur.replaceAll("$","\u200B\u0651");
+ kur=kur.replaceAll("&","\u200B\u064F");
+//  kur=kur.replaceAll("%","");
 // kur=kur.replaceAll("#","<br>");
  return kur;
  }
