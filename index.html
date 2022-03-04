@@ -16,6 +16,10 @@
 font-family: simplified;
 src: url('res/arial.ttf');
 }
+@font-face{
+font-family: quran;
+src: url('res/me_quran.ttf');
+}
 #con{
 font-family:amiri;
 }
@@ -232,8 +236,22 @@ const la=[
 "q~_d$uri:| q~_d$uri: q~_z$az # q~_dri: r~b$ana # nuri: b~_z$az # r~z$uq d~q$ bab~_na # mizan # q~_b$an| q~_d$uri: # $",
 "q@_rd| ram@_z q~d@m m@n dar@na # m~_r$~ maz@n m@n d~rb@na # qad@r d~r$~b~ bazi: # m@nqar # m@br~d| q@_rd # @",
 "d&b| z&nbur # z&rzur # r&z # r&m$an # q&m nuri:, z&r m&nir # m&_rad m&dir q~dir| d&b # &",
-" `nuan | cmle auli # cmle tanie | klme # h^rf ",
-" `nuan | cmle auli # cmle tanie | klme # h^rf "
+"r~f| r~f # far # rif # fi: dar@ m&fid far # m~naf n~d$af f~qir # f~rid f~r$~ m@n dar@ m&nif # r~dif r~fiq faruq # f~riq f~n$an q~dir | r~f # f",
+"ful| ful # fil # fi: z@nbil n~bil ful # qal~ b~dil, zam@l b~q$al # fi: m~nz@l@ nad@r b@rmil | ful # l",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k",
+"`nuan | klmat | klme # k"
 ];
 
 const ca=[
@@ -409,6 +427,7 @@ function load_page(){
   if (fnt==0) fnf="amiri";
   if (fnt==1) fnf="noto";
   if (fnt==2) fnf="simplified";
+  if (fnt==3) fnf="quran";
   con.style.fontFamily=fnf;
   var is=i.toString();
   var i0=is.padStart(2,"0");
@@ -525,7 +544,7 @@ function voice(v){
 
 function change_font() {
   fnt++;
-  if(fnt>2) fnt=0; 
+  if(fnt>3) fnt=0; 
   localStorage.setItem("DARA_LESSON_FONT", fnt);
   load_page();
   }
