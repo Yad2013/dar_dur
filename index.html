@@ -145,7 +145,7 @@ table{
   width:100%;
   }
 td{
-  width:33%;
+  /* width:33%; */
   }
 img{
   vertical-align:middle;
@@ -394,24 +394,26 @@ function get_more(){
   clearTimeout(timer);
   k=0;
   document.getElementById("play").innerHTML=PLAY;
-  var dau=red==0?"داو":"دا<w-d class=red>و</w-d>";
+  var dau=red==0?"دور":"د<w-d class=red>و</w-d>ر";
   var hnw=`<button id=dau onclick="highlight()">${dau}</button`;
-  const ddd="دارا";
+  const ddd="دار";
   var fnb=`<button id=fnb onclick="change_font()">${ddd}</button`;
-  var voice=rd=="t"?"<button class=red onclick=voice('t')>Tara</button> <button onclick=voice('y')>Yad</button>":"<button onclick=voice('t')>Tara</button> <button class=red onclick=voice('y')>Yad</button>";
+  let voice="<button class=red onclick=change_ttl(1)>Kur</button> <button onclick=change_ttl(3)>Eng</button> <button onclick=change_ttl(0)>None</button>";
+  if(ttl==3) voice="<button onclick=change_ttl(1)>Kur</button> <button class=red onclick=change_ttl(3)>Eng</button> <button onclick=change_ttl(0)>None</button>";
+  if(ttl==0) voice="<button onclick=change_ttl(1)>Kur</button> <button onclick=change_ttl(3)>Eng</button> <button class=red onclick=change_ttl(0)>None</button>";
   const t=`
 <h2>Settings</h2>
 <div class=etxt>
 <table>
 <tr valign=top>
 <td>
-Voice: </td><td align=right>${voice}</td>
+Translation:</td><td align=right>${voice}</td>
 </tr>
 <tr>
-<td>Hightlight New Letters: </td><td align=right>${hnw}</<td>
+<td>Hightlight:</td><td align=right>${hnw}</<td>
 </tr>
 <tr>
-<td>Change Font: </td><td align=right>${fnb}</<td>
+<td>Change Font:</td><td align=right>${fnb}</<td>
 </tr>
 </table>
 </div>
@@ -568,7 +570,7 @@ document.addEventListener("keydown",event=>{
   
   if (event.key==="r") {if(red==0) red=1; else red=0; localStorage.setItem("DARA_LESSON_RED", red); load_page();}
   if (event.key==="f") change_font();
-  if (event.key==="t") change_ttl();
+  if (event.key==="t") change_ttl(-1);
 
   if (event.key > -1 && event.key < 10){
     i=event.key;
@@ -596,9 +598,10 @@ function change_font() {
   load_page();
   }
 
-function change_ttl() {
+function change_ttl(n) {
   ttl++;
-  if(ttl>3) ttl=0; 
+  if(ttl>3) ttl=0;
+  if(n>-1) ttl=n;
   // localStorage.setItem("DARA_LESSON_FONT", fnt);
   load_page();
   }
@@ -810,15 +813,18 @@ function eng_to_kur(eng){
  }
 
  var tta=[
-   [],
+   [
+   ""
+   ],
    [
    "pitekan|pitekan u us^ekan|xanuu",
    "xanuu|xanuu|xanuu|xanuu",
    "xanuuan|xanuu|xanuuan|xanuu|xanuuan|krm|krm|xanuu|krm|xanuuan",
    "duu xanuu|duu xanuu|duu xanuu|<agr|<agr|r^uunaki|duu xanuu|n",
    "brai bc^uuk|krm|brai bc^uuk|brai bc^uuk|krm|xanuu|duu xanuu|xanuuan",
-   "xorak|xorak|brai bc^uuk|xorak|zuuzuu (naue)|xanuu|xanuuan|<agr|r^uunaki|xorak|z",
-   "nuuri (naue)|r^azi (naue)|nuuri (naue)|(herduukian) serdanian krdm|nuri (naue)|i",
+   "xorak|xorak|brai bc^uuk|xorak|zuuzuu (nau)|xanuu|xanuuan|<agr|r^uunaki|xorak|z",
+   "nuuri (nau)|r^azi (nau)|nuuri (nau)|(herduukian) serdanian krdm|nuri (nau)|i",
+   "",
    ""
   ],
   [
@@ -827,8 +833,9 @@ function eng_to_kur(eng){
    "biut|bit|biut|bit|biut|||||",
    "duu xanuu|duu xanuu|duu xanuu|<agr|<agr|r^uunaki|duu xanuu|n",
    "brai bc^uuk|krm|brai bc^uuk|brai bc^uuk|krm|xanuu|duu xanuu|xanuuan",
-   "xorak|xorak|brai bc^uuk|xorak|zuuzuu (naue)|xanuu|xanuuan|<agr|r^uunaki|xorak|z",
-   "nuuri (naue)|r^azi (naue)|nuuri (naue)|(herduukian) serdanian krdm|nuri (naue)|i",
+   "xorak|xorak|brai bc^uuk|xorak|zuuzuu (nau)|xanuu|xanuuan|<agr|r^uunaki|xorak|z",
+   "nuuri (nau)|r^azi (nau)|nuuri (nau)|(herduukian) serdanian krdm|nuri (nau)|i",
+   "",
    ""
   ],
   [
@@ -839,6 +846,8 @@ function eng_to_kur(eng){
    "young brother|worm|young brother|young brother|worm|house|two houses|houses",
    "food|food|young brother|food|Zoozoo (name)|house|houses|fire|light|food|z",
    "Noori (name)|Razi (name)|Noori (name)|(both) visited me|Noori (name)|i",
+   "",
+   "",
    ""
   ]
   ];
@@ -887,7 +896,11 @@ class WordTootip extends HTMLElement{
           console.log("tt click");
           });
       }
-    document.getElementById("bd").addEventListener("click", function() {
+    this.addEventListener("mouseout", function() {
+        Array.from(document.getElementsByTagName('a')).forEach(function(item){item.outerHTML="";});
+        // console.log("mouseout");
+        });
+    document.getElementById("txt").addEventListener("click", function() {
         // Array.from(document.getElementsByTagName('a')).forEach(function(item){item.outerHTML="";});
         console.log("body");
         });
