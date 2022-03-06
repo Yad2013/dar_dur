@@ -17,8 +17,8 @@ font-family: simplified;
 src: url('res/arial.ttf');
 }
 @font-face{
-font-family: quran;
-src: url('res/me_quran.ttf');
+font-family: naskh;
+src: url('res/quran_naskh.ttf');
 }
 #con{
 font-family:amiri;
@@ -159,15 +159,17 @@ w-d:hover{
     color:red;
     cursor:pointer;
     /* border:1px #ccc dotted; */
+    background-color: #eee;
     }
     
 w-d {
     position: relative;
 }
-a{
+t-t{
     background-color:#555;
     color: #fff;
     text-align: center;
+    white-space: nowrap;
     border-radius: 6px;
     padding: 4px 10px;
     position: absolute;
@@ -175,21 +177,21 @@ a{
     /* bottom:120%; */
     }
 
-a p{
+t-t p{
     font-family: amiri;
     line-height: 100%;
     margin: 0;
     padding: 4px;
     }
-a b{
+t-t b{
     position: absolute;
     top: 100%;
-    left: 40%;
+    /* left: 40%; */
     border-width: 6px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
     }
-a:hover {
+t-t:hover {
     /* visibility: visible; */
     color:yellow;
     cursor:pointer;
@@ -198,7 +200,8 @@ a:hover {
 @media screen and (orientation:landscape) {
 	#pic{
 		float:left;
-		width:50%;
+		width:49%;
+    margin-right:1%;
 		}
 	#txt{
     margin-top:20px;
@@ -284,20 +287,20 @@ const la=[
 "d&b| z&nbur # z&rzur # r&z # r&m$an # q&m nuri:, z&r m&ni:r # m&_rad m&di:r q~di:r| d&b # &",
 "r~f| r~f # far # ri:f # fi: dar@ m&fi:d far # m~naf n~d$af f~qi:r # f~ri:d f~r$~ m@n dar@ m&ni:f # r~di:f r~fi:q faruq # f~ri:q f~n$an q~di:r | r~f # f",
 "ful| ful # fi:l # fi: z@nbi:l n~bi:l ful # qal~ b~di:l, zam@l b~q$al # fi: m~nz@l@ nad@r b@rmi:l | ful # l",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k",
-"`nuan | klmat | klme # k"
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k",
+"`nuan | klmat | klme: # k"
 ];
 
 const ca=[
@@ -475,7 +478,7 @@ function load_page(){
   if (fnt==0) fnf="amiri";
   if (fnt==1) fnf="noto";
   if (fnt==2) fnf="simplified";
-  if (fnt==3) fnf="quran";
+  if (fnt==3) fnf="naskh";
   con.style.fontFamily=fnf;
   var is=i.toString();
   var i0=is.padStart(2,"0");
@@ -536,16 +539,16 @@ function toc(){
  var rv="<div id=bd>";
  var pit="alh^ruf";
  pit=eng_to_kur(pit);
- rv+="<w-d onclick='get_char_grid(1)'>"+pit+"</w-d><br>"
+ rv+="<a onclick='get_char_grid(1)'>"+pit+"</a><br>"
  pit="alh^ruf u alklmat";
  pit=eng_to_kur(pit);
- rv+="<w-d onclick='get_char_grid(2)'>"+pit+"</w-d><br>"
+ rv+="<a onclick='get_char_grid(2)'>"+pit+"</a><br>"
  for (var j=1;j<la.length;j++){
  var ta=la[j].split("|");
  if(ta[0]=="") ta[0]="dara dara";
  var t=eng_to_kur(ta[0]);
  var jk=eng_to_kur(j+"");
- tt=jk+". <w-d onclick='goto("+j+")'>"+t+"</w-d><br>";
+ tt=jk+". <a onclick='goto("+j+")'>"+t+"</a><br>";
  rv+=tt;
  }
  rv+="</div>";
@@ -770,6 +773,7 @@ function eng_to_kur(eng){
  kur=kur.replaceAll("r","ر");
  kur=kur.replaceAll("u","و");
  kur=kur.replaceAll("i","ی");
+ kur=kur.replaceAll("e:","ة");
  kur=kur.replaceAll("e","ه‌");
  kur=kur.replaceAll("z","ز");
  kur=kur.replaceAll(",","،");
@@ -863,7 +867,7 @@ class WordTootip extends HTMLElement{
     this.addEventListener("mouseover", show_tooltip);
     this.addEventListener("click", show_tooltip);
     function show_tooltip() {
-      Array.from(document.getElementsByTagName('a')).forEach(function(item){item.outerHTML="";});
+      // Array.from(document.getElementsByTagName('a')).forEach(function(item){item.outerHTML="";});
       var id=this.id;
       let i0=id.substring(0,2);
       let k0=id.substring(2);
@@ -872,32 +876,35 @@ class WordTootip extends HTMLElement{
       var tt=ttl==0?"||||||||||||||||||||":tta[ttl][i];
       var ttwa=tt.split("|");
       // console.log(id,i,k,ttwa);
-      var tt=document.createElement('a');
+      var tt=document.createElement('t-t');
       tt.setAttribute("id", "t"+k);
       let mn=ttwa[k];
       if(ttl==1 || ttl==2) mn=eng_to_kur(mn);
-      tt.innerHTML=`<p>${mn}</p><b></b>`;
+      tt.innerHTML=`<p>${mn}</p>`; //<b></b>
       // console.log(tt);
       if(ttl) this.parentElement.appendChild(tt);
-      var ael=document.getElementsByTagName("b")[0];
+      // var ael=document.getElementsByTagName("b")[0];
       var ttw=tt.offsetWidth;
       var welw=this.offsetWidth;
       var well=this.offsetLeft;
       var ww=window.innerWidth;
       var xt=-(ttw/2)+(welw/2);
-      var nr=well+xt;
-      var nl=well-(ttw/2)+(welw/2);
+      // var nr=well+xt; // right
+      var nr=well+ttw; // right
+      var nl=well-(ttw/2)+(welw/2); // left
       var xta=0;
-      if(nr>ww) {xt-=nr-ww; xta=nr-ww;}
+      if(nr>ww) {xta=nr-ww; xt=-xta;}
       if(nl<0) {xt-=nl; xta=nl;}
       var st=`left:${this.offsetLeft+xt}px; top:${this.offsetTop-tt.offsetHeight}px;`;
       tt.setAttribute("style",st);
+      // if(xta) ael.style.transform="translate("+xta+"px)";
+
       if(ttl) document.getElementById("t"+k).addEventListener("click", function() {
           console.log("tt click");
           });
       }
     this.addEventListener("mouseout", function() {
-        Array.from(document.getElementsByTagName('a')).forEach(function(item){item.outerHTML="";});
+        Array.from(document.getElementsByTagName('t-t')).forEach(function(item){item.outerHTML="";});
         // console.log("mouseout");
         });
     document.getElementById("txt").addEventListener("click", function() {
@@ -911,7 +918,11 @@ class WordTootip extends HTMLElement{
 
     }
   }
+class ToolTip extends HTMLElement{
+  constructor(){super();}
+  }
 window.customElements.define("w-d", WordTootip);
+window.customElements.define("t-t", ToolTip);
 
 </script>
 </body>
@@ -923,6 +934,7 @@ TO-DO
 =====
 add more pages
 add more sound
+remove tashkil
 
 ====
 DONE
