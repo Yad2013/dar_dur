@@ -288,8 +288,9 @@ const la=[
 "d&b| z&nbur # z&rzur # r&z # r&m$an # q&m nuri:, z&r m&ni:r # m&_rad m&di:r q~di:r| d&b # &",
 "r~f| r~f # far # ri:f # fi: dar@ m&fi:d far # m~naf n~d$af f~qi:r # f~ri:d f~r$~ m@n dar@ m&ni:f # r~di:f r~fi:q faruq # f~ri:q f~n$an q~di:r | r~f # f",
 "ful| ful # fi:l # fi: z@nbi:l n~bi:l ful # qal~ b~di:l, zam@l b~q$al # fi: m~nz@l@ nad@r b@rmi:l | ful # l",
-"`nuan | klmat | klme: # k",
-"`nuan | klmat | klme: # k",
+"b&lb&l& l~bib | b&lb&l& l~bib # l~bid m@n l&bnan # q~l~b~ l~bib b@rmili: # b&lb&l # l~ql~q |",
+"r@da> | b@na> # ma> # a^&nbub # a<@briq # a^~rn~b # a^~bu a^~min b~n$a> # a^~rad a^~dib a<@briq ma> # a^~bi: a^~m~r~ni: a^~n a^~qr~a^~ | r@da> # >",
+"a<@zar& a^&m$i: | a<@zar& a^&m$i: a^~zr~q # fi: a<@na>@ m&nib ma> # q~r~a^~ a^~dib # b~d~a^na n~qra^& # a<@qr~a^ a<@qr~a^ a^~mami: # a^&m$& a^~mir fi: a^~rbil # a^&rid& a^~n a^~zur~ a^~min |",
 "`nuan | klmat | klme: # k",
 "`nuan | klmat | klme: # k",
 "`nuan | klmat | klme: # k",
@@ -356,7 +357,7 @@ const ca=[
  "h^|t&f$ah^||61",
  "x|m@nfax|Kh|72",
  "d|dar|D|1",
- "d:|a&stad:|D|48",
+ "d:|a^&stad:|D|48",
  "r|dar|R|1",
  "z|zad|Z|5",
  "s|fanus|S|38",
@@ -373,21 +374,21 @@ const ca=[
  "l|ful|L|25",
  "m|bum|M|17",
  "n|daran|N|3",
- "h|ah|H|53",
+ "h|aah|H|53",
  "u|dur|U,W|2",
  "i:|nuri:|I,Y|6",
- "h_|b@<r||29",
+ "h_|h_&dh_&d||54",
  "e:|d~uae:|T|56",
- "ؤ|b@<r||29",
+ "u>|bu>re:||29",
  "i|mr`i$:|I,Y|45",
- "ئ|b@<r||29",
+ "<|rd<||29",
  "la|l~blab|La|35",
  ">|r@da>||27",
- "<_|b@<r||29",
- "أ|a~rn~b|A|27",
- "إ|a@bri:q|I,E|27",
- "آ|as|A|44",
- "ٱ|alfi:l||34",
+ "<_|b@<_r||29",
+ "a^|a^~rn~b|A|27",
+ "a<|a<@bri:q|I,E|27",
+ "aa|aas|A|44",
+ "a:|a:lfi:l||34",
  "__~_|r~bab|A|15",
  "__@_|q@rd|I|22",
  "__&_|d&b|U|23",
@@ -815,6 +816,10 @@ function is_mobile() {
 
 function eng_to_kur(eng){
  var kur=eng;
+ kur=kur.replaceAll("aa","آ");
+ kur=kur.replaceAll("a^","أ");
+ kur=kur.replaceAll("a<","إ");
+ kur=kur.replaceAll("a:","ٱ");
  kur=kur.replaceAll("a","ا");
  kur=kur.replaceAll("b","ب");
  kur=kur.replaceAll("p","پ");
@@ -850,6 +855,7 @@ function eng_to_kur(eng){
  kur=kur.replaceAll("h","ه");
  kur=kur.replaceAll("e:","ة");
  kur=kur.replaceAll("e","ه‌");
+ kur=kur.replaceAll("u>","ؤ");
  kur=kur.replaceAll("u","و");
  kur=kur.replaceAll("o","ۆ");
  kur=kur.replaceAll("i^","ێ");
