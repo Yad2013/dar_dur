@@ -197,7 +197,22 @@ t-t:hover {
     color:yellow;
     cursor:pointer;
     }
-
+.ytc{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 75%; /* 4:3 Aspect Ratio */
+}
+.ytf{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 @media screen and (orientation:landscape) {
 	#pic{
 		float:left;
@@ -275,7 +290,7 @@ const la=[
 "di:_na| di:_na duri: nazdar # nuri: zar nazdar # razi: zar di:_na|",
 "di:_na| di:_na, nuri:, razi: zaruni: # di:_nari: # di:_nar zuzu # di:_naran|",
 "nar nar| di:_na, zuzu, nuri:, razi: # ni:ran, ni:ran # dar di:_na dari: # zad nuri: zadi:|",
-"zab| bab # bab dar razi: # bab baban babi: # baz bazi: # nab nabi:| zab # b",
+"zab| bab # bab dar razi: # bab baban bab_i: # baz bazi: # nab nab_i:| zab # b",
 "bazan| bazan # bi:r # buran # baba baba bazan # bazi: baz buran # bi:r dar nuri:|",
 "r~bab b~dran| b~dran zar~ r~bab # r~bab zuri: buran # razi: zad~ d~nani:ri:| r~bab # ~",
 "b~_dri: b~_di:n| b~_dri: b~_di:n # nuri: r~zi:n # zadi: z~bi:b # razi: r~bi:b b~dri: # dar r~bab|",
@@ -289,10 +304,10 @@ const la=[
 "r~f| r~f # far # ri:f # fi: dar@ m&fi:d far # m~naf n~d$af f~qi:r # f~ri:d f~r$~ m@n dar@ m&ni:f # r~di:f r~fi:q faruq # f~ri:q f~n$an q~di:r | r~f # f",
 "ful| ful # fi:l # fi: z@nbi:l n~bi:l ful # qal~ b~di:l, zam@l b~q$al # fi: m~nz@l@ nad@r b@rmi:l | ful # l",
 "b&lb&l& l~bib | b&lb&l& l~bib # l~bid m@n l&bnan # q~l~b~ l~bib b@rmili: # b&lb&l # l~ql~q |",
-"r@da> | b@na> # ma> # a^&nbub # a<@briq # a^~rn~b # a^~bu a^~min b~n$a> # a^~rad a^~dib a<@briq ma> # a^~bi: a^~m~r~ni: a^~n a^~qr~a^~ | r@da> # >",
-"a<@zar& a^&m$i: | a<@zar& a^&m$i: a^~zr~q # fi: a<@na>@ m&nib ma> # q~r~a^~ a^~dib # b~d~a^na n~qra^& # a<@qr~a^ a<@qr~a^ a^~mami: # a^&m$& a^~mir fi: a^~rbil # a^&rid& a^~n a^~zur~ a^~min |",
-"`nuan | klmat | klme: # k",
-"`nuan | klmat | klme: # k",
+"r@da> | b@na> # ma> # a^&nbub # a_@briq # a^~rn~b # a^~bu a^~min b~n$a> # a^~rad a^~dib a_@briq ma> # a^~bi: a^~m~r~ni: a^~n a^~qr~a^~ | r@da> # >",
+"a_@zar& a^&m$i: | a_@zar& a^&m$i: a^~zr~q # fi: a_@na>@ m&nib ma> # q~r~a^~ a^~dib # b~d~a^na n~qra^& # a_@qr~a^ a_@qr~a^ a^~mami: # a^&m$& a^~mir fi: a^~rbil # a^&rid& a^~n a^~zur~ a^~min |",
+"b@<_r | ma>& b@<_r@na bar@d # ra<_@f qa<_@d fi: a^~rbil # ma<_i: fi: a_@na<_i: q~lil # fa<_@z  a^~qr~b& m@n fa<_@q | b@<_r # <_",
+"b~l$ut^ | b~l$ut^ # q@t^ # b~t^ # t^abuq # q@t^ar # b~t^at^a # fi: t^~b~q@ t^ar@q b~l$ut^ # bazna t^ar~ m@n dar@ t^al@b # l&t^fi: t^~l~b~ t^&bul~na | b~l$ut^ # t^",
 "`nuan | klmat | klme: # k",
 "`nuan | klmat | klme: # k",
 "`nuan | klmat | klme: # k",
@@ -386,7 +401,7 @@ const ca=[
  ">|r@da>||27",
  "<_|b@<_r||29",
  "a^|a^~rn~b|A|27",
- "a<|a<@bri:q|I,E|27",
+ "a_|a<@bri:q|I,E|27",
  "aa|aas|A|44",
  "a:|a:lfi:l||34",
  "__~_|r~bab|A|15",
@@ -435,7 +450,7 @@ function ps(id){
 	}
 
 function next(){
- if(i<la.length) i++;
+ if(i<la.length-1) i++;
  localStorage.setItem("DARA_LESSON_NO", i)
  k=0;
  playing=1;
@@ -513,7 +528,8 @@ function get_char_grid(m){
   k=0;
   document.getElementById("play").innerHTML=PLAY;
   var t;
-  t=m==2?"<div class=cgw>":"<div class=cg>";
+  const yt=`<div class="ytc"><iframe class="ytf" src="https://www.youtube.com/embed/hFjmAXR1PkY"></iframe></div>`;
+  t=m==2?"<div class=cgw>":yt+"<div class=cg>";
   for(j=1; j<ca.length; j++){
     cea=ca[j].split("|");
     cet=eng_to_kur(cea[0]);
@@ -555,8 +571,7 @@ function load_page(){
   if(!is_mobile()) fs=fs*1.4;
   document.getElementById("txt").style.fontSize=fs+"px";
   if(i==1 || i==2 || i==3) document.getElementById("bd").style.textAlign="center";
-  const lha=[15,16,17,18,19,20,21,22,23];
-  if(lha.includes(i)) {
+  if(i>14) {
     // document.getElementById("cc").style.lineHeight="40%";
     document.getElementById("bd").style.lineHeight="200%";
     } // else document.getElementById("bd").style.lineHeight="150%";
@@ -818,7 +833,7 @@ function eng_to_kur(eng){
  var kur=eng;
  kur=kur.replaceAll("aa","آ");
  kur=kur.replaceAll("a^","أ");
- kur=kur.replaceAll("a<","إ");
+ kur=kur.replaceAll("a_","إ");
  kur=kur.replaceAll("a:","ٱ");
  kur=kur.replaceAll("a","ا");
  kur=kur.replaceAll("b","ب");
