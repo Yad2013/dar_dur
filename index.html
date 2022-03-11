@@ -333,10 +333,10 @@ const la=[
 "d~uae:| d~uae: # da<@r~e:&: q~nt^~r~e:&: # fa<@z~e:&: f~tae:&: # a~lt^$~i$ar~e:& t~t^ir& # saf~r~ s~lim&: b@s~i$ar~e:@: # sa`~e:&: # d~r~sna fi: a:ls$a`~e:@ a:ls$ab@`~e:@ # n~s@it& k&r$as~e:~ a:lr$~sm@ fi: a:lm~dr~s~e:@ # s^~uk~e:&:, m@l`~q~e:&:, `&lb~e:&: | d~uae: # e:",
 "h$:d:a| h$:d:a # d:$:l@k~ # h$:d:a h@r$&: # h$:d:@h@ h@r$~e:&: # h$:d:a dik&: # h$:d:@h@ b~t^$~e:&: # d:$:l@k~ fil&: # d:$:l@k~ m&hr&: # h$:u^&la>@ m@n~ a:l`~s^ir~e:@ # ma s^a>~ a:ll$$:h # a_@n s^a>~ a:ll$$:h | h$:d:a # $:",
 "r~q$as:| r~q$as:& a:ls$a`~e:@ # a~lb~q$& i~qr&s:& # h$:d:a m@q~s:$&: # faruq i~q&s:$& a:lq~mis:~ | r~q$as: # s:",
-"s:~i$ad| klmat | klme: # s:_",
-"a~ls^$~ms& t^al@`~e:&:| klmat |",
-"t&f$ah^| klmat | klme: # h^",
-"h^@mar| klmat | klme: # h^_",
+"s:~i$ad| s:~diq&na s:~i$ad&: # s:ad@q u~s:~l~ a:lm~us:@l~ # u~q~f~ a:lt^$&lab& a^~mam a:ls:$&fuf@ # m~ns:ur r~ui$: l~na q@s:$~e:~: q~s:ir~e:~: # `&s:fur& s:ab@r t^ar~ m@n q~f~s:@h@ | s:~i$ad # s:_",
+"a~ls^$~ms& t^al@`~e:&:| a~ls^$~ms& t^al@`~e:&: # a~ls:$~i$ad& uaq@f&: # a~lk~lb& na<@m&: # a~l`~l~m& m~rfu`&: # a~lh@r$& i&t^ar@d& a:lfa^r~e:~ # a~lfa^r~e:& t~hr&b& # a~ld:$&bab& m~d:mum&: |",
+"t&f$ah^| t&f$ah^ # s:~lah^ f~l$ah^ # a~lm@ftah^& `@nd~ s:~bah^ # m~_mduh^ i~kt&b `li$: a:ll$~uh^@ # m~fatih^ # a~lm~fatih^& b@albab@ # a~lb~t^$~e:& t~sb~h^& # s:al@h^ d:~b~h^~ a:l~bq~re:~ | t&f$ah^ # h^",
+"h^@mar| h^@mar # s:&nduq&: m@n h^~did@: # m@ndil&: m@n h^~rir@: # h^~s$an h^~d$ad&: # h^~s~n h^~l$aq&: # h^&s~in h^~m$al&: # h^~diq~e:&: uas@`~e:&: | h^@mar # h^_",
 "s:~h^_n&:| klmat |",
 "za`^| klmat | klme: # `^",
 "b~`^~l&:| klmat | klme: # `^_",
@@ -420,6 +420,7 @@ var red=1;
 var fnt=0; // font 0: amiri 1: noto 2: simplified 
 var ttl=1; // tooltip language 0:none 1: kur 2: arab 3: eng
 var hlf=0;
+var dcr=1;
 var qs=window.location.search;
 qs=qs.replaceAll("?","");
 var qsa=qs.split("&")
@@ -501,6 +502,7 @@ p: Play lesson<br>
 t: Translation language<br>
 r: Red highlight of new letter<br>
 f: Font change<br>
+d: Toggle diacritics<br>
 h: Horizontal line toggle (some lessons)<br>
 l: Letters<br>
 w: Words and letters<br>
@@ -556,6 +558,7 @@ function load_page(){
   document.getElementById("imageid").src="res/p" + i0 + ".jpg";
   var t=la[i];
   var ta=t.split("|");
+  if(dcr==0) t=remove_diacritics(t);
   t=eng_to_kur(t);
   t=add_tags(t);
   if(i==0) t=toc();
@@ -653,6 +656,7 @@ document.addEventListener("keydown",event=>{
   if (event.key==="r") {if(red==0) red=1; else red=0; localStorage.setItem("DARA_LESSON_RED", red); load_page();}
   if (event.key==="f") change_font();
   if (event.key==="t") change_ttl(-1);
+  if (event.key==="d") toggle_diacritics();
 
   if (event.key > -1 && event.key < 10){
     i=event.key;
@@ -723,8 +727,7 @@ function add_tags(t){
  var cl=wa[wa.length-1];
  zwjb="";
  zwja="";
- if(red!=0 && i>0){
-   console.log(cl, cl.split(''));
+ if(red!=0 && i>0 && cl.length>0){
   if(cl=="\u064B"||cl=="\u064C"||cl=="\u064E"||cl=="\u064F"||cl=="\u0650"||cl=="\u0651"||cl=="\u0670") zwjb="\u200B";
   if(cl=="\u0629"||cl=="\u0637"||cl=="\u0635"||cl=="\u0640"||cl=="\u0641"||cl=="\u0642"||cl=="\u0643"||cl=="\u0644"||cl=="\u0645"||cl=="\u0647") zwja="\u200B";
   if(cl=="ء"){
@@ -736,7 +739,6 @@ function add_tags(t){
     }
   if(cl.length>1){
     let cla=cl.split('');
-    console.log(cla[1]);
     if(cla[1]=="ـ") cl=cla[0];
     }
   rv=rv.replaceAll(cl,"<span class=red>"+zwjb+cl+"</span>"+zwja);
@@ -844,6 +846,11 @@ function toggle_buttons() {
   if (ftb.style.bottom=="4px") ftb.style.bottom = "-50px"; else ftb.style.bottom = "4px";
   }
 
+function toggle_diacritics() {
+  if(dcr==1) dcr=0; else dcr=1;
+  load_page();
+  }
+ 
 function is_mobile() {
   return window.innerHeight > window.innerWidth;
   // return /Android|webOS|iPhone|BlackBerry|IEMobile/i.test(navigator.userAgent);
@@ -911,17 +918,30 @@ function eng_to_kur(eng){
  kur=kur.replaceAll(",","،");
  kur=kur.replaceAll("_","ـ");
  kur=kur.replaceAll("?","؟");
- kur=kur.replaceAll("~:","\u064B");
- kur=kur.replaceAll("&:","\u064C");
- kur=kur.replaceAll("@:","\u064D");
- kur=kur.replaceAll("$:","\u0670");
- kur=kur.replaceAll("~","\u064E");
- kur=kur.replaceAll("&","\u064F");
- kur=kur.replaceAll("@","\u0650");
- kur=kur.replaceAll("$","\u0651");
+ kur=kur.replaceAll("~:","\u064B"); // tanwin fat-ha
+ kur=kur.replaceAll("&:","\u064C"); // tanwin damma
+ kur=kur.replaceAll("@:","\u064D"); // tanwin kasra
+ kur=kur.replaceAll("$:","\u0670"); // small alif
+ kur=kur.replaceAll("~","\u064E");  // fat-ha
+ kur=kur.replaceAll("&","\u064F");  // damma
+ kur=kur.replaceAll("@","\u0650");  // kasra
+ kur=kur.replaceAll("$","\u0651");  // shadda
 //  kur=kur.replaceAll("%","");
 // kur=kur.replaceAll("#","<br>");
  return kur;
+ }
+
+ function remove_diacritics(rv){
+ rv=rv.replaceAll("a:","a");
+ rv=rv.replaceAll("~:",""); // tanwin fat-ha
+ rv=rv.replaceAll("&:",""); // tanwin damma
+ rv=rv.replaceAll("@:",""); // tanwin kasra
+ rv=rv.replaceAll("$:",""); // small alif
+ rv=rv.replaceAll("~","");  // fat-ha
+ rv=rv.replaceAll("&","");  // damma
+ rv=rv.replaceAll("@","");  // kasra
+ rv=rv.replaceAll("$","");  // shadda
+ return rv;
  }
 
  var tta=[
@@ -1047,6 +1067,7 @@ remove tashkil
 ====
 DONE
 ====
+remove diacritics
 add translations (tooltip)
 add line for calligraphy
 make settings: voice, lextter red
