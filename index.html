@@ -308,10 +308,10 @@ const la=[
 "f~rd&:| q@t^ar&: qad@m&:# l~na baz&: # l@lbaz@ m@nqar&: # zad&na q~lil&: # t^ar@q t^~bib&: # d~rb&na q~rib&: # a^~mam~na bab&: lt^if&: # m~a^mun qa<@d&: q~dir&: # l&t^fi: t^~b$al&:| f~rd&: # &:",
 "u~rd&:| u~rd&: # u~z$&: # z~ur~q&: # l&t^fi: u~q~f~ u~ra>~ z~ur~q@na # u~lid a^t^u~l& m@n m~ruan # ua<@l uaq@f&: u~ra>~ u@dad # buq m~ulud m@n u~r~q |",
 "i~d| i~d , z@iad , t^&iur # i&rid&  z~idun t^&iur z~idan # i~nam z@iad fi: dar a^~i$ub # q~dri: i~dri: a^~in~ i~nam& z@iad # b~in~ dar@na u~ dar@ z~in~b~ m~idan # u~lid t^~i$ar&: i~t^ir& |",
-"a~lfil&, a^~nf& a:lfil@| a~lbu$ab& qad@m&: # a~lu~l~d& na<@m&: # a~lqa<@d& q~dir&: # a~lb~qal& a^~min&: # a^~nf& a:lfil@ # q~f~z~ a:lu~l~d& m@n f~uq@ a:lb@rmil@ # t^ar~ a:lb&lb&l& u~a:lbaz& | a:lfil # a:",
-"l~blab| klmat | l~blab # la",
-"b~nat| klmat | b~nat # t",
-"t~mr&:| klmat |",
+"a~lfil&, a^~nf& a:lfil@| a~lbu$ab& qad@m&: # a~lu~l~d& na<@m&: # a~lqa<@d& q~dir&: # a~lb~qal& a^~min&: # a^~nf& a:lfil@ # q~f~z~ a:lu~l~d& m@n f~uq@ a:lb@rmil@ # t^ar~ a:lb&lb&l& u~ a:lbaz& | a:lfil # a:",
+"l~blab| b@lal lai~nam& fi: dar@ t^~lal # a~la^~rn~b&, a~la^&m$&, a~la_@briq& # f~r$~ a:la^~rn~b& m@n dar@ a:la^~mir@ # a~la^&m$& u~ a:la^~b& i&r~bi$an@ a:la^~ulad~ | l~blab # la",
+"b~nat| b~nat, t^al@bat #n~bat, f&rat # d~lal faz~t, z~in~b nad~t # a^nt~ q~r~a^t~, a^~na ma q~r~a^t& # t~l$&: # t~l$&: m@n t&rab # fi: b~it@ t^~lal t~mr&: u~ tin # a^&m$i: t~qul& : d~lal t~qr~a^& | b~nat # t",
+"t~mr&:| t~mr&:, z~itun&:, tin&: # z~it&na q~lil&: # a^~nt&m t^~l~bt&m z~it~ z~itun # b~tul b@nt& t~m$am t~qul& :# a^~ma r~a^~it&ma b~it~na? |",
 "fanus| klmat | fanus # s",
 "a~lz$~itun| klmat |",
 "a~lq~m~r& m&nir&:| klmat |",
@@ -323,7 +323,7 @@ const la=[
 "t^~rbus^| klmat | t^~rbus^ # s^",
 "s^~`ir| klmat | s^~`ir # s^_",
 "a^&stad:| klmat | a^&stad: # d:",
-"nara~: nar@:| klmat | nara~: # ~:",
+"nara~: nar@:| klmat | nara~: nar@: # ~:",
 "s^&b$ak| klmat | s^&b$ak # k",
 "k&rsi:$&:| k&rsi:$&: m~ksur&: | k&rsi:$&: # k_",
 "d&k$an| klmat |",
@@ -737,6 +737,10 @@ function add_tags(t){
     }
   if(cl=="\u064B"){ // FATHATAN
     rv=rv.replaceAll("\u064D","<span class=red>\u200B\u064D</span>");
+    }
+  if(cl=="لا"){
+    rv=rv.replaceAll("لأ","<span class=red>لأ</span>");
+    rv=rv.replaceAll("لإ","<span class=red>لإ</span>");
     }
   if(cl.length>1){
     cla=cl.split('');
