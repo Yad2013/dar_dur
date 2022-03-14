@@ -317,11 +317,11 @@ const la=[
 "a~lq~m~r& m&nir&:| a~lq~m~r& m&nir&: # a~lbaz& i~t^ir& # a~lu~l~d& i~qf@z& # a~lm@nqar& t^~uil&: # a~lu~l~d& na<@m&: # a~lfil& uaq@f&: |",
 "i~rbu`| q@na`, u~da`, q~r` # a~lb~i$a`& ba`~, a~lu~l~d& a^~t^a`~ # m~n$a` t^~b$a`&: q~dir&: # a~lz$ar@`& i~zr~`& fi: a:la^&sbu`@ a:lqad@m@ | irbu` # `",
 "`@n~b&:| `@nqud& `@n~b # `&mran `~l$~m~ `~dnan # q@m`&: # naf@` t^al@b&: m&t^i`&: # `ud&: r~fi`&:, q@m`&: m&fid&: # a~lr$a`i: m~n~`~ m&rur~ a:lq~t^i`@ | `nb # `_",
-"b~_`_ir| klmat | b_`_ir # _`_",
-"aas| klmat | aas # aa",
-"m~r`i$:| klmat | mr`i$: # i$:",
-"t^~rbus^| klmat | t^rbus^ # s^",
-"s^~`ir| klmat | s^`ir # s^_",
+"b~`ir| # b~`ir& n&`man #s~`id i~l`~b& m~`~ s~`dun # l~m`an t~l`~b& m~`~ s&`ad # n~`@im `ad~ m@n u~da`@ naf@` # qal~t m&`z$~z `@nd~ u~da`@ naf@`: # a~lu~da` a~lu~da` ia`~zizi: naf@`  | b~`ir # `_",
+"aas| aas, a~laas # aaba>, a~laaba> # q~r~a^~t aamal& a:lq&raan~ # qal~ a:laaba>& : aamin, aamin  | aas # aa",
+"m~r`i$:| musi$: i~r`i$: a:lm@`zi$: fi: a:lm~r`i$: # a@li$: m~ti$: i~bqi$: a:lb~`ir& `~li$: a:lt$~l$@? # i~bqi$: alb~`ir& `~li$: a:lt$~l$@ a@li$: a:lm~sa>@ # m~n t^~ui$: r@da<i:? s~lmi$: t^~u~t r@da<i: # m&ni$: a~qui$:  m@n slui$: | mr`i$: # i$:",
+"t^~rbus^| a~lf~r$as^ f~r~s^~ a:lf@ras^ #  a~ln$~q$as^& n~q~s^~ a:lq@mas^ # a~ln$~qs^& n~fis&:, t~`is^& i~d& a:ln$~qas^@ # i~`is^ t~`is^ ian~q$as^ | t^rbus^ # s^",
+"s^~`ir| s^~`ir # m@ns^ar # m@s^m@s^ # a@s^t~ri$: b~s^ir s^~rab~ a:lr$&m$an # s^~`lan `~t^s^an s^~r@b~ a:lma>~ # a~ls^$&rt^i:$& fi: s^ar@`@ a:lr$~s^id | s^`ir # s^_",
 "a^&stad:| klmat | a^stad: # d:",
 "nara~: nar@:| klmat | nara~: nar@: # ~:",
 "s^&b$ak| klmat | s^bak # k",
@@ -948,8 +948,7 @@ function eng_to_kur(eng){
  kur=kur.replaceAll("&","\u064F");  // damma
  kur=kur.replaceAll("@","\u0650");  // kasra
  kur=kur.replaceAll("$","\u0651");  // shadda
-//  kur=kur.replaceAll("%","");
-// kur=kur.replaceAll("#","<br>");
+ kur=kur.replaceAll(" :",":");
  return kur;
  }
 
