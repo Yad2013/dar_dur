@@ -5,13 +5,13 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 @font-face {
- font-family: amiri;
- src: url('res/amiri-regular.woff');
+font-family: amiri;
+src: url('res/amiri-regular.woff');
 }
 @font-face {
- font-family: noto;
- src: url('res/noto.ttf');
- }
+font-family: noto;
+src: url('res/noto.ttf');
+}
 @font-face{
 font-family: simplified;
 src: url('res/arial.ttf');
@@ -22,12 +22,12 @@ src: url('res/quran_naskh.ttf');
 }
 a{
 text-decoration:none;
-color:#000;  
+color:#000;
 }
 a:hover{
-	color:red;
-	cursor:pointer;
-	}
+color:red;
+cursor:pointer;
+}
 b{
 font-weight:400;
 }
@@ -35,213 +35,213 @@ font-weight:400;
 font-family:amiri;
 }
 #pic{
-	width:100%;
-	}
+width:100%;
+}
 #lno{
-	font-size:20px;
-  direction:rtl;
-  position:absolute;
-  top:0px;
-  left:10px;
-	}
+font-size:20px;
+direction:rtl;
+position:absolute;
+top:0px;
+left:10px;
+}
 #txt{
-	font-size:40px;
-	width:100%;
-	text-align:center;
-  direction:rtl;
-  line-height:180%;
-	}
+font-size:40px;
+width:100%;
+text-align:center;
+direction:rtl;
+line-height:180%;
+}
 #tt{
-  padding-top:20px;
-	}
+padding-top:20px;
+}
 #bd{
-	text-align:right;
-  direction:rtl;
-  line-height:150%;
-  padding:10px;
-	}
+text-align:right;
+direction:rtl;
+line-height:150%;
+padding:10px;
+}
 #ft{
-  border:0px red solid;
-  width:100%;
-  text-align:left;
-  direction:ltr;
-  display:flex;
-	}
+border:0px red solid;
+width:100%;
+text-align:left;
+direction:ltr;
+display:flex;
+}
 #cp{
-	height:40px;
-	}
+height:40px;
+}
 #cc{
-  color:#fff;
-  background-color:#00f;
-  width:150px;
-  height:150px;
-  border-radius:75px;
-  margin:20px;
-	font-size:40px;
-  line-height:170%;
-  text-align: center;
- }
+color:#fff;
+background-color:#00f;
+width:150px;
+height:150px;
+border-radius:75px;
+margin:20px;
+font-size:40px;
+line-height:170%;
+text-align: center;
+}
 #ftb{
-  width:100%;
-  text-align:center;
-  line-height:150%;
-  position:fixed;
-  bottom:4px;
-  transition: bottom 0.3s;
-	}
+width:100%;
+text-align:center;
+line-height:150%;
+position:fixed;
+bottom:4px;
+transition: bottom 0.3s;
+}
 #cvs{
-  position:absolute;
-  top:0px;
-  right:0px;
-  z-index:-1;
-  border:0px gray solid;
-	}
+position:absolute;
+top:0px;
+right:0px;
+z-index:-1;
+border:0px gray solid;
+}
 button{
-  width:60px;
-  height:40px;
-  border-radius:4px;
-  border:1px solid #aaa;
- }
+width:60px;
+height:40px;
+border-radius:4px;
+border:1px solid #aaa;
+}
 button:hover{
-  background:#ddd;
-  }
+background:#ddd;
+}
 .pressed{
-  color:#f00;
-  }
+color:#f00;
+}
 #dau, #fnb{
-	font-size:30px;
-  line-height:30%;
-  }
+font-size:30px;
+line-height:30%;
+}
 .red{
-  color:#f00;
-  }
+color:#f00;
+}
 .blue{
-  color:#00f;
-  }
+color:#00f;
+}
 .green{
-  color:#0f0;
-  }
+color:#0f0;
+}
 h2{
-	font-size:20px;
-	width:100%;
-	text-align:left;
-  line-height:100%;
-  margin-top:20px;
-  margin-bottom:4px;
-	}
+font-size:20px;
+width:100%;
+text-align:left;
+line-height:100%;
+margin-top:20px;
+margin-bottom:4px;
+}
 .etxt{
-  font-family:arial;
-	font-size:18px;
-	direction:ltr;
-	text-align:left;
-  line-height:100%;
-	}
+font-family:arial;
+font-size:18px;
+direction:ltr;
+text-align:left;
+line-height:100%;
+}
 .cg{
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  }
+display: grid;
+grid-template-columns: auto auto auto auto;
+}
 .cgw{
-  display: grid;
-  grid-template-columns: auto;
-  }
+display: grid;
+grid-template-columns: auto;
+}
 .ce{
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  text-align: center;
-  font-size:60px;
-  line-height:160%;
-  padding:10px;
-  }
+border: 1px solid rgba(0, 0, 0, 0.1);
+text-align: center;
+font-size:60px;
+line-height:160%;
+padding:10px;
+}
 .cew{
-  text-align: center;
-  font-size:24px;
-  line-height:100%;
-  padding:2px;
-  }
+text-align: center;
+font-size:24px;
+line-height:100%;
+padding:2px;
+}
 table{
-  width:100%;
-  }
+width:100%;
+}
 td{
-  /* width:33%; */
-  }
+/* width:33%; */
+}
 img{
-  vertical-align:middle;
-  }
+vertical-align:middle;
+}
 
 p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:26px;
-    }
+font-family: Arial, Helvetica, sans-serif;
+font-size:26px;
+}
 w-d:hover{
-    color:red;
-    cursor:pointer;
-    /* border:1px #ccc solid; */
-    background-color: #eee;
-    border-radius: 6px;
-    }
-    
+color:red;
+cursor:pointer;
+/* border:1px #ccc solid; */
+background-color: #eee;
+border-radius: 6px;
+}
+
 w-d {
-    position: relative;
+position: relative;
 }
 t-t{
-    background-color:#555;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    border-radius: 6px;
-    padding: 4px 10px;
-    position: absolute;
-    z-index: 1;
-    /* bottom:120%; */
-    }
+background-color:#555;
+color: #fff;
+text-align: center;
+white-space: nowrap;
+border-radius: 6px;
+padding: 4px 10px;
+position: absolute;
+z-index: 1;
+/* bottom:120%; */
+}
 
 t-t p{
-    font-family: amiri;
-    line-height: 100%;
-    margin: 0;
-    padding: 4px;
-    }
+font-family: amiri;
+line-height: 100%;
+margin: 0;
+padding: 4px;
+}
 t-t b{
-    position: absolute;
-    top: 100%;
-    /* left: 40%; */
-    border-width: 6px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-    }
+position: absolute;
+top: 100%;
+/* left: 40%; */
+border-width: 6px;
+border-style: solid;
+border-color: #555 transparent transparent transparent;
+}
 t-t:hover {
-    /* visibility: visible; */
-    color:yellow;
-    cursor:pointer;
-    }
+/* visibility: visible; */
+color:yellow;
+cursor:pointer;
+}
 @media screen and (orientation:landscape) {
-	#pic{
-		float:left;
-		width:49%;
-    margin-right:1%;
-		}
-	#txt{
-    /* margin-top:20px; */
-		float:left;
-		font-size:80px;
-		width:50%;
-    line-height:180%;
-	  }
- .cc{
-    color:#fff;
-    background-color:#00f;
-    width:200px;
-    height:200px;
-    border-radius:150px;
-    margin:20px;
-    font-size:60px;
-    line-height:170%;
-    text-align: center;
-    }
-  .cgw{
-    display: grid;
-    grid-template-columns: auto auto;
-    }
- }
+#pic{
+float:left;
+width:49%;
+margin-right:1%;
+}
+#txt{
+/* margin-top:20px; */
+float:left;
+font-size:80px;
+width:50%;
+line-height:180%;
+}
+.cc{
+color:#fff;
+background-color:#00f;
+width:200px;
+height:200px;
+border-radius:150px;
+margin:20px;
+font-size:60px;
+line-height:170%;
+text-align: center;
+}
+.cgw{
+display: grid;
+grid-template-columns: auto auto;
+}
+}
 </style>
 </head>
 <body id="body" ondblclick="toggle_buttons()" onload="load_page()">
@@ -256,7 +256,7 @@ t-t:hover {
 <div style="height:50px;"></div>
 <div id=ftb>
 <button id=more onclick="get_more()">
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
 </button>
 
 <button onclick="gototoc()">
@@ -297,69 +297,69 @@ const la=[
 "bum| n~di:_m nam~ # r~z~m~ nuri: b~ri:di:| bum # m",
 "mi:zan| mi:zan # m~nam r~mzi: # m~nam m~rdan # ma nam~ n~di:_m| mi:zan # m_",
 "buq| buq m~rzuq # q~bqab # q~bqabi: # q~bqab di:na # q~bqab r~mzi:| buq # q",
-"q~dri:| q~dri: qad~ b~q~r~na # qam~ n~di:_m # dari: q~ri:b # buqi: r~qi:q |",
+"q~dri:| q~dri: qad~ b~q~r~na # qam~ n~di:_m # dari: q~ri:b # buqi: r~qi:q|",
 "q~_d$uri:| q~_d$uri: q~_z$az # q~_dri: r~b$ana # nuri: b~_z$az # r~z$uq d~q$ bab~_na # mi:zan # q~_b$an| q~_d$uri: # $",
 "q@_rd| ram@_z q~d@m m@n dar@na # m~_r$~ maz@n m@n d~rb@na # qad@r d~r$~b~ bazi: # m@nqar # m@br~d| q@_rd # @",
 "d&b| z&nbur # z&rzur # r&z # r&m$an # q&m nuri:, z&r m&ni:r # m&_rad m&di:r q~di:r| d&b # &",
 "r~f| r~f # far # ri:f # fi: dar@ m&fi:d far # m~naf n~d$af f~qi:r # f~ri:d f~r$~ m@n dar@ m&ni:f # r~di:f r~fi:q faruq # f~ri:q f~n$an q~di:r| rf # f",
 "ful| ful # fi:l # fi: z@nbi:l n~bi:l ful # qal~ b~di:l, zam@l b~q$al # fi: m~nz@l@ nad@r b@rmi:l| ful # l",
-"b&lb&l& l~bib | b&lb&l& l~bib # l~bid m@n l&bnan # q~l~b~ l~bib b@rmili: # b&lb&l # l~ql~q |",
-"r@da> | r@da>, b@na> # ma>,  a^&nbub # a_@briq, a^~rn~b # a^~bu a^~min b~n$a> # a^~rad a^~dib a_@briq ma> # a^~bi: a^~m~r~ni: a^~n a^~qr~a^~| rda> # >",
-"a_@zar& a^&m$i: | a_@zar& a^&m$i: a^~zr~q # fi: a_@na>@ m&nib ma> # q~r~a^~ a^~dib # b~d~a^na n~qra^& # a_@qr~a^ a_@qr~a^ a^~mami: # a^&m$& a^~mir fi: a^~rbil # a^&rid& a^~n a^~zur~ a^~min|",
-"b@<r | ma>& b@<r@na bar@d # ra<@f qa<@d fi: a^~rbil # ma<i: fi: a_@na<i: q~lil # fa<@z  a^~qr~b& m@n fa<@q| b<r # <_",
-"b~l$ut^ | b~l$ut^, q@t^ # b~t^, t^abuq # q@t^ar, b~t^at^a # fi: t^~b~q@ t^ar@q b~l$ut^ # bazna t^ar~ m@n dar@ t^al@b # l&t^fi: t^~l~b~ t^&bul~na| blut^ # t^",
+"b&lb&l& l~bib| b&lb&l& l~bib # l~bid m@n l&bnan # q~l~b~ l~bib b@rmili: # b&lb&l # l~ql~q|",
+"r@da>| r@da>, b@na> # ma>, a^&nbub # a_@briq, a^~rn~b # a^~bu a^~min b~n$a> # a^~rad a^~dib a_@briq ma> # a^~bi: a^~m~r~ni: a^~n a^~qr~a^~| rda> # >",
+"a_@zar& a^&m$i:| a_@zar& a^&m$i: a^~zr~q # fi: a_@na>@ m&nib ma> # q~r~a^~ a^~dib # b~d~a^na n~qra^& # a_@qr~a^ a_@qr~a^ a^~mami: # a^&m$& a^~mir fi: a^~rbil # a^&rid& a^~n a^~zur~ a^~min|",
+"b@<r| ma>& b@<r@na bar@d # ra<@f qa<@d fi: a^~rbil # ma<i: fi: a_@na<i: q~lil # fa<@z a^~qr~b& m@n fa<@q| b<r # <_",
+"b~l$ut^| b~l$ut^, q@t^ # b~t^, t^abuq # q@t^ar, b~t^at^a # fi: t^~b~q@ t^ar@q b~l$ut^ # bazna t^ar~ m@n dar@ t^al@b # l&t^fi: t^~l~b~ t^&bul~na| blut^ # t^",
 "f~rd&:| q@t^ar&: qad@m&:# l~na baz&:, l@lbaz@ m@nqar&: # zad&na q~lil&:, t^ar@q t^~bib&: # d~rb&na q~rib&:, a^~mam~na bab&: lt^if&: # m~a^mun qa<@d&: q~dir&: # l&t^fi: t^~b$al&:| frd&: # &:",
-"u~rd&:| u~rd&:, u~z$&:, z~ur~q&: # l&t^fi: u~q~f~ u~ra>~ z~ur~q@na # u~lid a^t^u~l& m@n m~ruan # ua<@l uaq@f&: u~ra>~ u@dad # buq m~ulud m@n u~r~q |",
-"i~d| i~d , z@iad , t^&iur # i&rid&  z~idun t^&iur z~idan # i~nam z@iad fi: dar a^~i$ub # q~dri: i~dri: a^~in~ i~nam& z@iad # b~in~ dar@na u~ dar@ z~in~b~ m~idan # u~lid t^~i$ar&: i~t^ir& |",
+"u~rd&:| u~rd&:, u~z$&:, z~ur~q&: # l&t^fi: u~q~f~ u~ra>~ z~ur~q@na # u~lid a^t^u~l& m@n m~ruan # ua<@l uaq@f&: u~ra>~ u@dad # buq m~ulud m@n u~r~q|",
+"i~d| i~d , z@iad , t^&iur # i&rid& z~idun t^&iur z~idan # i~nam z@iad fi: dar a^~i$ub # q~dri: i~dri: a^~in~ i~nam& z@iad # b~in~ dar@na u~ dar@ z~in~b~ m~idan # u~lid t^~i$ar&: i~t^ir&|",
 "a~lfil&, a^~nf& a:lfil@| a~lbu$ab& qad@m&:, a~lu~l~d& na<@m&: # a~lqa<@d& q~dir&:, a~lb~qal& a^~min&: # a^~nf& a~lfil@, a^~nf& a:lfil@ # q~f~z~ a:lu~l~d& m@n f~uq@ a:lb@rmil@ # t^ar~ a:lb&lb&l& u~ a:lbaz&| a:lfil # a:",
 "l~blab| b@lal lai~nam& fi: dar@ t^~lal # a~la^~rn~b&, a~la^&m$&, a~la_@briq& # f~r$~ a:la^~rn~b& m@n dar@ a:la^~mir@ # a~la^&m$& u~ a:la^~b& i&r~bi$an@ a:la^~ulad~| lblab # la",
 "b~nat| b~nat, t^al@bat #n~bat, f&rat # d~lal faz~t, z~in~b nad~t # a^nt~ q~r~a^t~, a^~na ma q~r~a^t& # t~l$&: # t~l$&: m@n t&rab # fi: b~it@ t^~lal t~mr&: u~ tin # a^&m$i: t~qul& : d~lal t~qr~a^&| bnat # t",
-"t~mr&:| t~mr&:, z~itun&:, tin&: # z~it&na q~lil&: # a^~nt&m t^~l~bt&m z~it~ z~itun # b~tul b@nt& t~m$am t~qul& :# a^~ma r~a^~it&ma b~it~na? |",
+"t~mr&:| t~mr&:, z~itun&:, tin&: # z~it&na q~lil&: # a^~nt&m t^~l~bt&m z~it~ z~itun # b~tul b@nt& t~m$am t~qul& :# a^~ma r~a^~it&ma b~it~na?|",
 "fanus| qabus l~m~s~ r~a^s~ a^~nis # b~lqis t~lb~s& a_@zar~ l~mis # a^~s~d # f~r~s&na s~b~q~ f~r~s~ s&l~iman~ # saf~r~t m~isun m~sa>~ a^~ms # s~a^~l~ s~lman& : m~n s~r~q~ a:lf~r~s~?| fanus # s",
-"a~lz$~itun| a~lz$~itun& m&r$&: # a~ld@$inar& r~qiq&: # a~lr$&m$an& t^~i$@b&: # a~lt^$al@b& i~qr~a^& # a~ld&b$& uaq@f&: # a~lt$~l$& q~rib&: |",
-"a~lq~m~r& m&nir&:| a~lq~m~r& m&nir&: # a~lbaz& i~t^ir& # a~lu~l~d& i~qf@z& # a~lm@nqar& t^~uil&: # a~lu~l~d& na<@m&: # a~lfil& uaq@f&: |",
+"a~lz$~itun| a~lz$~itun& m&r$&: # a~ld@$inar& r~qiq&: # a~lr$&m$an& t^~i$@b&: # a~lt^$al@b& i~qr~a^& # a~ld&b$& uaq@f&: # a~lt$~l$& q~rib&:|",
+"a~lq~m~r& m&nir&:| a~lq~m~r& m&nir&: # a~lbaz& i~t^ir& # a~lu~l~d& i~qf@z& # a~lm@nqar& t^~uil&: # a~lu~l~d& na<@m&: # a~lfil& uaq@f&:|",
 "i~rbu`| q@na`, u~da`, q~r` # a~lb~i$a`& ba`~, a~lu~l~d& a^~t^a`~ # m~n$a` t^~b$a`&: q~dir&: # a~lz$ar@`& i~zr~`& fi: a:la^&sbu`@ a:lqad@m@| irbu` # `",
 "`@n~b&:| `@nqud& `@n~b # `&mran `~l$~m~ `~dnan # q@m`&: # naf@` t^al@b&: m&t^i`&: # `ud&: r~fi`&:, q@m`&: m&fid&: # a~lr$a`i: m~n~`~ m&rur~ a:lq~t^i`@| `nb # `_",
 "b~`ir| # b~`ir& n&`man #s~`id i~l`~b& m~`~ s~`dun # l~m`an t~l`~b& m~`~ s&`ad # n~`@im `ad~ m@n u~da`@ naf@` # qal~t m&`z$~z `@nd~ u~da`@ naf@`: # a~lu~da` a~lu~da` ia`~zizi: naf@`| b~`ir # `_",
 "aas| aas, a~laas # aaba>, a~laaba> # q~r~a^~t aamal& a:lq&raan~ # qal~ a:laaba>& : aamin, aamin| aas # aa",
-"m~r`i$:| musi$: i~r`i$: a:lm@`zi$: fi: a:lm~r`i$: # a@li$: m~ti$: i~bqi$: a:lb~`ir& `~li$: a:lt$~l$@? # i~bqi$: alb~`ir& `~li$: a:lt$~l$@ a@li$: a:lm~sa>@ # m~n t^~ui$: r@da<i:? s~lmi$: t^~u~t r@da<i: # m&ni$: a~qui$:  m@n slui$:| mr`i$: # i$:",
-"t^~rbus^| a~lf~r$as^ f~r~s^~ a:lf@ras^ #  a~ln$~q$as^& n~q~s^~ a:lq@mas^ # a~ln$~qs^& n~fis&:, t~`is^& i~d& a:ln$~qas^@ # i~`is^ t~`is^ ian~q$as^| t^rbus^ # s^",
+"m~r`i$:| musi$: i~r`i$: a:lm@`zi$: fi: a:lm~r`i$: # a@li$: m~ti$: i~bqi$: a:lb~`ir& `~li$: a:lt$~l$@? # i~bqi$: alb~`ir& `~li$: a:lt$~l$@ a@li$: a:lm~sa>@ # m~n t^~ui$: r@da<i:? s~lmi$: t^~u~t r@da<i: # m&ni$: a~qui$: m@n slui$:| mr`i$: # i$:",
+"t^~rbus^| a~lf~r$as^ f~r~s^~ a:lf@ras^ # a~ln$~q$as^& n~q~s^~ a:lq@mas^ # a~ln$~qs^& n~fis&:, t~`is^& i~d& a:ln$~qas^@ # i~`is^ t~`is^ ian~q$as^| t^rbus^ # s^",
 "s^~`ir| s^~`ir # m@ns^ar # m@s^m@s^ # a@s^t~ri$: b~s^ir s^~rab~ a:lr$&m$an # s^~`lan `~t^s^an s^~r@b~ a:lma>~ # a~ls^$&rt^i:$& fi: s^ar@`@ a:lr$~s^id| s^`ir # s^_",
 "a^&stad:| a^&stad:, t~lamid: # u~q~f~ m&nd:@r a^~mam~ a:la^&stad: # n~d:ir i~d:uq& a:l`~s~l # a~l`~s~l& l~d:id:&: # m&nd:@r i~t^r&d& a:ld:$&bab # a~ld:$&bab& m~d:mum&:| a^stad: # d:",
 "nara~: nar@:| r~a^~ina nara~:, r~f~`na `~l~ma~: # a@s^t~ri$: m&nd:@r u~r~qa~: u~q~l~ma~: # n~l`~b& u~n~zdad& n~s^at^a~: # nar@: # a^~min i~rmi: a:l~bl$ut^~ fi: nar@: # r~a^~it& a^~rn~ba~: f~uq~ t~l$@:| nara~: # ~:",
 "s^&b$ak| s^&b$ak, dik # `id&k m&bar~k iam~bruk # u~ `id&k~ ia mal@k # m~bruk # s~m$ak&: i~bi`& a:ls$~m~k~ # a~ld$ik& f~r~$ m@n dar@ mal@k # a@rf~` i~d~k~, lat~fr&k `~in~k~| s^bak # k",
-"k&rsi:$&:| k&rsi:$&: m~ksur&: # fi: m~sk~ni: kbs^&: # k~rim fi: k~rkuk # s^&kra~: l~k~ ia k~mal # k~t~b~t~ a:lm~ktub~ kma q&lt& l~k~ | krsi: # k_",
-"d&k$an| d&k$an& a:lb~q$al # k~lb&: # k~lb& a:l$ra`i: # a^~k~lt& a:l`@n~b~ # k&l$&na n~a^k&l& a:lt$in~ |",
+"k&rsi:$&:| k&rsi:$&: m~ksur&: # fi: m~sk~ni: kbs^&: # k~rim fi: k~rkuk # s^&kra~: l~k~ ia k~mal # k~t~b~t~ a:lm~ktub~ kma q&lt& l~k~| krsi: # k_",
+"d&k$an| d&k$an& a:lb~q$al # k~lb&: # k~lb& a:l$ra`i: # a^~k~lt& a:l`@n~b~ # k&l$&na n~a^k&l& a:lt$in~|",
 "aah| aah m@n~ a:la~l~m@ # m@iah # i&sa`@d& faruq a^~bah& # ui&saf@r& m~`~h& a@li$: b~ld@h@ # i~a^k&l& m@n zad@h@ fi: s~f~r@h@ # n~bih l~h& `~m$&:, z&rt&h& q~bl~ s~f~r@h@| aah # h",
-"h&dh&d| hau~n, h~ua>, h@r # d:~h~b~ t^ah@r a@li$: a:l&bstan@ # q~t^~f~  has^@m z~hr~ a:lr$&m$an # h~l t~`r@f a^~in~ d:~h~b~ fa<@q? # d:~h~b~ fa<@q a@li$: dar h@lal| hdhd # h_",
+"h&dh&d| hau~n, h~ua>, h@r # d:~h~b~ t^ah@r a@li$: a:l&bstan@ # q~t^~f~ has^@m z~hr~ a:lr$&m$an # h~l t~`r@f a^~in~ d:~h~b~ fa<@q? # d:~h~b~ fa<@q a@li$: dar h@lal| hdhd # h_",
 "m&_h_r&:| z&rt& a^&m$i: q&lt& l~ha : # n~har&k@ s~`id # qal~t : u~ n~har&k~ a^~nt~ # a^~hla~: u~ s~hla~: ia `~zizi:| m_h_r # h_",
 "d~uae:| da<@r~e:&: q~nt^~r~e:&:, fa<@z~e:&: f~tae:&: # a~lt^$~i$ar~e:& t~t^ir& # saf~r~ s~lim&: b@s~i$ar~e:@: # sa`~e:&: # d~r~sna fi: a:ls$a`~e:@ a:ls$ab@`~e:@ # n~s@it& k&r$as~e:~ a:lr$~sm@ fi: a:lm~dr~s~e:@ # s^~uk~e:&:, m@l`~q~e:&:, `&lb~e:&:| duae: # e:",
 "h$:d:a| h$:d:a, d:$:l@k~ # h$:d:a h@r$&:, h$:d:@h@ h@r$~e:&: # h$:d:a dik&:, h$:d:@h@ b~t^$~e:&: # d:$:l@k~ fil&:, d:$:l@k~ m&hr&: # h$:u^&la>@ m@n~ a:l`~s^ir~e:@ # ma s^a>~ a:ll$$:h # a_@n s^a>~ a:ll$$:h| h$:d:a # $:",
 "r~q$as:| r~q$as:& a:ls$a`~e:@ # a~lb~q$& i~qr&s:& # h$:d:a m@q~s:$&: # faruq i~q&s:$& a:lq~mis:~| rqas: # s:",
 "s:~i$ad| s:~diq&na s:~i$ad&: # s:ad@q u~s:~l~ a:lm~us:@l~ # u~q~f~ a:lt^$&lab& a^~mam a:ls:$&fuf@ # m~ns:ur r~ui$: l~na q@s:$~e:~: q~s:ir~e:~: # `&s:fur& s:ab@r t^ar~ m@n q~f~s:@h@| s:iad # s:_",
-"a~ls^$~ms& t^al@`~e:&:| a~ls^$~ms& t^al@`~e:&: # a~ls:$~i$ad& uaq@f&: # a~lk~lb& na<@m&: # a~l`~l~m& m~rfu`&: # a~lh@r$& i&t^ar@d& a:lfa^r~e:~ # a~lfa^r~e:& t~hr&b& # a~ld:$&bab& m~d:mum&: |",
+"a~ls^$~ms& t^al@`~e:&:| a~ls^$~ms& t^al@`~e:&: # a~ls:$~i$ad& uaq@f&: # a~lk~lb& na<@m&: # a~l`~l~m& m~rfu`&: # a~lh@r$& i&t^ar@d& a:lfa^r~e:~ # a~lfa^r~e:& t~hr&b& # a~ld:$&bab& m~d:mum&:|",
 "t&f$ah^| s:~lah^ f~l$ah^ # a~lm@ftah^& `@nd~ s:~bah^ # m~_mduh^ i~kt&b `li$: a:ll$~uh^@ # m~fatih^ # a~lm~fatih^& b@albab@ # a~lb~t^$~e:& t~sb~h^& # s:al@h^ d:~b~h^~ a:l~bq~re:~| tfah^ # h^",
 "h^@mar| s:&nduq&: m@n h^~did@: # m@ndil&: m@n h^~rir@: # h^~s$an h^~d$ad&: # h^~s~n h^~l$aq&: # h^&s~in h^~m$al&: # h^~diq~e:&: uas@`~e:&:| h^mar # h^_",
-"s:~h^_n&:| m~h^as@n t~t~`~l$~m& a:lh^@sab~ # h^~mdi: i~bi`& a:lf~h^m~ # m~h^ruse:& t~h^l&b& a:lb~q~r~e:~ # m~h^mud f~l$ah^&: i~h^s:&d& a:lq~mh^~ |",
+"s:~h^_n&:| m~h^as@n t~t~`~l$~m& a:lh^@sab~ # h^~mdi: i~bi`& a:lf~h^m~ # m~h^ruse:& t~h^l&b& a:lb~q~r~e:~ # m~h^mud f~l$ah^&: i~h^s:&d& a:lq~mh^~|",
 "za`^| d~b$a`^, s:~b$a`^, far@`^ # r&s`^ # a~ls:$~ba`^& i~s:b&`^& # a~ld$~b$a`^& i:~db&`^& # `^~zal # `@nd~ s&`ad `^@rbal&: # `^~s$an i~r`i$: `^~n~ma~: # a~lb&lb&l& `^~r$~d~| za`^ # `^",
 "b~`^l&:| a~l`^&lam& r~k@b~ a:lb~`^l~e:~ # a~lbnt& t~`^z@l& fi: a:l`^&rf~e:@ # b~`^dad `as:@m~e:& a:l`@raq # a~lma>& i~`^li: # b~b$~`^a>, m@`^z~l| b`^l # `^_",
 "h^~uz:| r@iaz: i~rk&z:& u~ra>~ a:la^~rn~b@ # r@iaz: u~q~`~ `~li$: a:la^~rz:@ # z:@fd~`&: # a~lz:$@fd~`~e:& t~qf@z& fi: a:lh^~uz:@ # a~l`^&rf~e:& z:~i$q~e:&: # a~lr$~uz:~e:& b~di`~e:&:| h^uz: # z:",
-"b~iz:~e:&:| i~a^kl& r@iaz: b~iz:~e:~: # n@z:al t~kt&b& # h$:d:@h@ m@nz:~d~ti: #  m&z:~r i~z:h^~k&| biz:e: # z:_",
+"b~iz:~e:&:| i~a^kl& r@iaz: b~iz:~e:~: # n@z:al t~kt&b& # h$:d:@h@ m@nz:~d~ti: # m&z:~r i~z:h^~k&| biz:e: # z:_",
 "tac| a~ld$~r~c& a^~`u~c&: # a~lh^~l$aq& a^~`r~c&: # a_@sf~nc # h$:d:a a_@sf~nc&: # a~lf~tae:& t~ns@c& s~l$~e:~:| tac # c",
 "c~r~s&:| d&q$~ c~r~s& a:ld$~rs@ # h$:d:a c@sr&: c~did&: # naci: a@cl@s c~nbi: # a~ld$~cac~e:& baz:~t # c~mil~e:& ca`~t # a~lz$&cac~e:& z:a`~t| crs # c_",
-"m@nc~l&:| a~lf~l$ah^& i~h^s:&d& b@alm@nc~l@ # a~lt@$lmid:& i~qr~a^& t~h^t~ a:ls^$~c~re:@ # h^am@d i&c~l@$d& a:lk@tab~ # alc~rad& i~a^k&l& a:lz$~r`~ |",
-"m@h^rat:| l~it:&: i:~h^r&t:& # t:~`l~b&: # h$:d:a  t:~`l~b&: s:~`^i:r&:, a~lt:$~`l~b& m@t:l& a:lk~lb@ # a~lt:$~ur& i~c&r$& a:lm@h^rat:~ # n@z:al t~sm~`& a:lh^~dit:~| mh^rat: # t:",
+"m@nc~l&:| a~lf~l$ah^& i~h^s:&d& b@alm@nc~l@ # a~lt@$lmid:& i~qr~a^& t~h^t~ a:ls^$~c~re:@ # h^am@d i&c~l@$d& a:lk@tab~ # alc~rad& i~a^k&l& a:lz$~r`~|",
+"m@h^rat:| l~it:&: i:~h^r&t:& # t:~`l~b&: # h$:d:a t:~`l~b&: s:~`^i:r&:, a~lt:$~`l~b& m@t:l& a:lk~lb@ # a~lt:$~ur& i~c&r$& a:lm@h^rat:~ # n@z:al t~sm~`& a:lh^~dit:~| mh^rat: # t:",
 "m@nfax| f~rx& a:lb~t^@$ i~sb~h^& # a~lt^$~b$ax& i&t^`@m& ala^~frax~ # b@t^$ix # a^&m$i: t~t^b&x& t^~`am~na # a~lh^~d$ad& i~nf&x& a:ln$ar~| m@nfax # x",
 "x~ruf| xal~ti: x~i$at^~e:&: # xal@d i~lb~s& xud:~e:~: # h$:d:a x~b$az&na # xad@m&na a^~xr~s&| x~ruf # x_",
-"m&nx&l&:| alxad@me:& t~h^m@l& a:lm&nx&l~ # a^~na a^&h^@b& a:lx~ux~ # xal@d~e:& t~xr&c& m@n a:lb~it@ # n~s:~bna a:lx@i~m~ b~in~ a:ln$~xil@ # x~lil i~xt^&b& i~um~ a:lx~mis@ |",
-"m~h^fud^| nad^@m n~d^if&: # kad^@m d^~rif&: # a^&m$i: t&q~l$@m& a~d^fari: # n~cl@s& t~h^t~ d^@lal@ a:la^~s^car@ |mh^fud^ # d^",
-"alm&`~l$@m&| qal~ alm&`~l$@m& l@t~lamid:@h@ : # a@qr~a^ua, f~q~r~a^ua # t:&m$~ qal~ l~h&m : # a&kt&bua, f~k~t~bua #  b~`d d:$:l@k~ qal~ l~h&m : # a@rs&mua, f~r~s~mua, # q~ra^ua, k~t~bua, r~s~mua |",
-"lah^@d^| fi: a:lh^~diq~e:@ s^~c~r~e:&: # l~ha t:~lat:~e:& a~`^s:an@: # u~ `~l~iha t:~lat:~e:& t^&iur@: #  u~ t~h^t~ha t:~lat:~e:& a^~ran@b~ # h$:d:@h@ `^&rf~e:&: # l~ha naf@d:~tan@ # u~ fiha k&rsi$an@ # fa^rtan t~hr&ban@ # u~ h@r$~e:&: t&t^ar@d&h&ma # `~b$as& a^~mam~ a:ls^$~c~r~e:@ # fi: i~d@h@ t&f$ah^~tan # u~ `~li$: als^$~c~r~e:@ t&f$ah^~e:&: |",
-"ala^~`dad& 1-5| 1. r~a^~it& h^~mam~e:~: uah^@d~e:~: f~q~t^ # 2. f~r~san@ i~rk&z:an@ # 3. fi: dar@na t:~lat:& q@t^~t^ # 4. r~a^~ina a^~rb~`~e:~ `~s:afir # 5. a@s^t~r~it& x~ms~e:~ a^~qlam@: |",
-"ala^~`dad& 6-10| 6. a@s^t~r~ina s@t$~ b&rt&qalat@: # 7. t^~l~bna m@n~ a:lx~b$az@ s~b`~e:~ a^r`^@f~e:@: # 8. a^~k~l~ `~dnan& t:~mani:~ t&f$ah^at@: # 9. a^~`t^ani: t@s`~ k&m$~t:rat@: # 10. a^~`ar~ni: z~mili: `~s^~r~e:~ k&t&b@: |",
-"q@t^$~ti:| q@t^$~ti: s:~`^ir~e: # u~a:sm&ha n~mir~e: # s^~`r&ha c~mil&: # d:~il&ha t^~uil&: # l@`b&ha i&s~l$i: # u~ h@i:~ li: k~d^@l$i: # t&d^h@r& alm~har~e: # k~i: t~s:id~ fare: |",
-"l~`@b~ ius&f&| l~`@b~ ius&f& m~`~ a:lk~lb@ # ia^k&l& alk~bs^& h^~s^is^~ a:lh^~diq~e:@ # r~k@b~ t^ar@q h^@mar~h& # r~k~z:~ a:lq@t^$& u~ra>~ alfa^r~e:@ # i&t^i`& `@s:am&: a^~bah& # u~a^~buh& i&h^@b$&h& k~t:ira~: # t&sa`@d& m@t:al& a^&m$~ha fi: a:lb~it@ # t~ns^&r& a:lm~lab@s~ `~li$: alh^~bl@ |",
-"n@hai~e:& alk@tab@| a^nt~ alaan t~st~t^@i`& a^n t~qr~a^~ a^~i:$~ k@tab~e:@: b@all&`^~e:@ al`~r~bi$e:@. # l@a^~n$~ k&l$& ma hu~ m~ktub&:, m&k~u$~n&: m@n hd:@h@ alh^&ruf@ u alh^~r~kat@ al$~ti: t~`~l$~mt~ha. # m~bruk! |"
+"m&nx&l&:| alxad@me:& t~h^m@l& a:lm&nx&l~ # a^~na a^&h^@b& a:lx~ux~ # xal@d~e:& t~xr&c& m@n a:lb~it@ # n~s:~bna a:lx@i~m~ b~in~ a:ln$~xil@ # x~lil i~xt^&b& i~um~ a:lx~mis@|",
+"m~h^fud^| nad^@m n~d^if&: # kad^@m d^~rif&: # a^&m$i: t&q~l$@m& a~d^fari: # n~cl@s& t~h^t~ d^@lal@ a:la^~s^car@|mh^fud^ # d^",
+"alm&`~l$@m&| qal~ alm&`~l$@m& l@t~lamid:@h@ : # a@qr~a^ua, f~q~r~a^ua # t:&m$~ qal~ l~h&m : # a&kt&bua, f~k~t~bua # b~`d d:$:l@k~ qal~ l~h&m : # a@rs&mua, f~r~s~mua, # q~ra^ua, k~t~bua, r~s~mua|",
+"lah^@d^| fi: a:lh^~diq~e:@ s^~c~r~e:&: # l~ha t:~lat:~e:& a~`^s:an@: # u~ `~l~iha t:~lat:~e:& t^&iur@: # u~ t~h^t~ha t:~lat:~e:& a^~ran@b~ # h$:d:@h@ `^&rf~e:&: # l~ha naf@d:~tan@ # u~ fiha k&rsi$an@ # fa^rtan t~hr&ban@ # u~ h@r$~e:&: t&t^ar@d&h&ma # `~b$as& a^~mam~ a:ls^$~c~r~e:@ # fi: i~d@h@ t&f$ah^~tan # u~ `~li$: als^$~c~r~e:@ t&f$ah^~e:&:|",
+"ala^~`dad& 1-5| 1. r~a^~it& h^~mam~e:~: uah^@d~e:~: f~q~t^ # 2. f~r~san@ i~rk&z:an@ # 3. fi: dar@na t:~lat:& q@t^~t^ # 4. r~a^~ina a^~rb~`~e:~ `~s:afir # 5. a@s^t~r~it& x~ms~e:~ a^~qlam@:|",
+"ala^~`dad& 6-10| 6. a@s^t~r~ina s@t$~ b&rt&qalat@: # 7. t^~l~bna m@n~ a:lx~b$az@ s~b`~e:~ a^r`^@f~e:@: # 8. a^~k~l~ `~dnan& t:~mani:~ t&f$ah^at@: # 9. a^~`t^ani: t@s`~ k&m$~t:rat@: # 10. a^~`ar~ni: z~mili: `~s^~r~e:~ k&t&b@:|",
+"q@t^$~ti:| q@t^$~ti: s:~`^ir~e: # u~a:sm&ha n~mir~e: # s^~`r&ha c~mil&: # d:~il&ha t^~uil&: # l@`b&ha i&s~l$i: # u~ h@i:~ li: k~d^@l$i: # t&d^h@r& alm~har~e: # k~i: t~s:id~ fare:|",
+"l~`@b~ ius&f&| l~`@b~ ius&f& m~`~ a:lk~lb@ # ia^k&l& alk~bs^& h^~s^is^~ a:lh^~diq~e:@ # r~k@b~ t^ar@q h^@mar~h& # r~k~z:~ a:lq@t^$& u~ra>~ alfa^r~e:@ # i&t^i`& `@s:am&: a^~bah& # u~a^~buh& i&h^@b$&h& k~t:ira~: # t&sa`@d& m@t:al& a^&m$~ha fi: a:lb~it@ # t~ns^&r& a:lm~lab@s~ `~li$: alh^~bl@|",
+"n@hai~e:& alk@tab@| a^nt~ alaan t~st~t^@i`& a^n t~qr~a^~ a^~i:$~ k@tab~e:@: b@all&`^~e:@ al`~r~bi$e:@. # l@a^~n$~ k&l$& ma hu~ m~ktub&:, m&k~u$~n&: m@n hd:@h@ alh^&ruf@ u alh^~r~kat@ al$~ti: t~`~l$~mt~ha. # m~bruk!|"
 ];
 
 const ca=[
@@ -968,187 +968,187 @@ function eng_to_kur(eng){
  return rv;
  }
 
- var tta=[
-   [
-   ""
-   ],
-   [
-   "",
-   "xanuu|xanuu|xanuu|xanuu",
-   "xanuuan|xanuu|xanuuan|xanuu|xanuuan|krm|krm|xanuu|krm|xanuuan",
-   "duu xanuu|duu xanuu|duu xanuu|<agr|<agr|r^uunaki|duu xanuu|n",
-   "brai bc^uuk|krm|brai bc^uuk|brai bc^uuk|krm|xanuu|duu xanuu|xanuuan",
-   "xorak|xorak|brai bc^uuk|xorak|zuuzuu (nau)|xanuu|xanuuan|<agr|r^uunaki|xorak|z",
-   "nuuri (nau)|r^azi (nau)|nuuri (nau)|(herduukian) serdanian krdm|nuri (nau)|i",
-   "goze|goze|gozei mn|duu goze|nuuri|nuuri|gozei mn|gozei mn|goze|i",
-   "r^azi|r^azi|serdani krd|nuuri|nuuri|serdani krd|r^azi|brai bc^uuk|brai bc^uuk|r^azi|nuuri|zuuzuu|serdanian krdin",
-   "<agr|r^uunaki|<agr|r^uunaki|nir|duu nir|dinar|duu dinar",
-   "dina|dina|c^oleke|nazdar|nuuri|serdani krd|nazdar|r^azi|serdani krd|dina",
-   "dina|dina|nuuri|r^azi|serdanian krdm|dinari mn|dinar|zuuzuu|duu dinar",
-   "<agr|<agr|dina|zuuzuu|nuuri|r^azi|<agri zor|<agri zor|xanuu|dina|xanuui mn|xorak|nuuri|xoraki mn",
-   "r^uubar|r^uubar|derga|derga|xanuu|r^azi|derga|duu derga|dergai mn|baz|bazi mn|ddani kel^be|ddani kel^bei mn|r^uubar|b",
-   "duu baz|duu baz|bir|buuran (nau)|babe|babe|duu baz|bazi mn|baz|buuran|bir|xanuu|nuuri",
-   "r^ebab (nau)|bedran(nau)|bedran|serdani krd|r^ebab|r^ebab|serdani bke|buuran|r^azi|ziadi krd|dinarekani mn|r^ebab|e",
-   "bedri (nau)|qel^eu|bedri|qel^eu|nuuri|gran, sengin|xoraki mn|mi^uj|r^azi|peruerdekrau|bedri|xanuu|r^ebab",
-   "kundepepuu|nedim|nust|besta|nuuri|namekani mn|kundepepuu|m",
-   "terazuu|terazuu|s^ui^ni nustn|r^emzi|s^ui^ni nustn|merdan|ne|nust|nedim|terazuu|m",
-   "zur^na|zur^na|merzuuq|qapqap|qapqapi mn|qapqap|dina|qapqap|r^emzi|zur^na|q",
-   "qedri|qedri|bepi^s^i keut|mangakani <i^me|hel^sta|nedim|xanuui mn|nzik|zur^nai mn|nerm",
-   "qedduuri (nau)|qedduuri|bazrgani <auris^m|qedri|peruerdei krdin|nuuri|kutal^ fros^|r^ezzuuq|li^ida|dergai <i^me|terazuu|qepan|qedduuri|s^edde",
-   "meimuun|r^amz (nau)|hat|le __ _eue|xanuui <i^me|ti^per^i|mazn (nau)|le __ _eue|r^i^gai <i^me|qadr (nau)|mes^qi krd be |bazi mn|denduuk|meured|meimuun|q",
-   "urc^|zengezore|r^es^ol^e|brnc|henar|heste|nuuri|serdan bke|munir|murad|ber^i^ueber|betuana|urc^",
-   "taqc^ke|taqc^ke|ms^k|gund|le __ heie|xanuui|mufid (nau)|ms^k|menaf (nau)|uestai pemo|hejar|ferid (nau)|hel^at|le|xanuui|munif (nau)|r^edif (nau)|haur^i^|faruq (nau)|feriq (nau)|hunermend|betuana|taqc^ke|f",
-   "paqle|paqle|fil|le __ heie|zenbil|nebil (nau)|paqle|guti|bedil (nau)|zaml|dukandar|le __ heie|mal^|nadr (nau)|bermil|paqle|l",
-   "",
-   "",
-   "",
-   "",
-   "ber^uu",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "mang (eke)|bes^euq(e)",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "pencere",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "r^oj (eke)|derkeutuu (e)",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "das",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "ps^ilei mn",
-   "",
-   "kotaii|pertuuk (eke)"
-  ],
-  [
-   "",
-   "bit|bit|bit|bit",
-   "biut|bit|biut|bit|biut|||||",
-   ""
-  ],
-  [
-   "",
-   "house|house|house|house",
-   "houses|house|houses|house|houses|worm|worm|house|worm|houses",
-   "two houses|two houses|two houses|fire|fire|light|two houses|n",
-   "young brother|worm|young brother|young brother|worm|house|two houses|houses",
-   "food|food|young brother|food|Zoozoo (name)|house|houses|fire|light|food|z",
-   "Noori (name)|Razi (name)|Noori (name)|(both) visited me|Noori (name)|i",
-   "",
-   "",
-   "",
-   "Dina",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "Qedri",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "oak",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "the moon|(is) shining",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "window",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "the sun|(is) rising",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "sickle",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "",
-   "my cat",
-   "",
-   "end of|the book"
-  ]
-  ];
+var tta=[
+[
+""
+],
+[
+"",
+"xanuu|xanuu|xanuu|xanuu",
+"xanuuan|xanuu|xanuuan|xanuu|xanuuan|krm|krm|xanuu|krm|xanuuan",
+"duu xanuu|duu xanuu|duu xanuu|<agr|<agr|r^uunaki|duu xanuu|n",
+"brai bc^uuk|krm|brai bc^uuk|brai bc^uuk|krm|xanuu|duu xanuu|xanuuan",
+"xorak|xorak|brai bc^uuk|xorak|zuuzuu (nau)|xanuu|xanuuan|<agr|r^uunaki|xorak|z",
+"nuuri (nau)|r^azi (nau)|nuuri (nau)|(herduukian) serdanian krdm|nuri (nau)|i",
+"goze|goze|gozei mn|duu goze|nuuri|nuuri|gozei mn|gozei mn|goze|i",
+"r^azi|r^azi|serdani krd|nuuri|nuuri|serdani krd|r^azi|brai bc^uuk|brai bc^uuk|r^azi|nuuri|zuuzuu|serdanian krdin",
+"<agr|r^uunaki|<agr|r^uunaki|nir|duu nir|dinar|duu dinar",
+"dina|dina|c^oleke|nazdar|nuuri|serdani krd|nazdar|r^azi|serdani krd|dina",
+"dina|dina|nuuri|r^azi|serdanian krdm|dinari mn|dinar|zuuzuu|duu dinar",
+"<agr|<agr|dina|zuuzuu|nuuri|r^azi|<agri zor|<agri zor|xanuu|dina|xanuui mn|xorak|nuuri|xoraki mn",
+"r^uubar|r^uubar|derga|derga|xanuu|r^azi|derga|duu derga|dergai mn|baz|bazi mn|ddani kel^be|ddani kel^bei mn|r^uubar|b",
+"duu baz|duu baz|bir|buuran (nau)|babe|babe|duu baz|bazi mn|baz|buuran|bir|xanuu|nuuri",
+"r^ebab (nau)|bedran(nau)|bedran|serdani krd|r^ebab|r^ebab|serdani bke|buuran|r^azi|ziadi krd|dinarekani mn|r^ebab|e",
+"bedri (nau)|qel^eu|bedri|qel^eu|nuuri|gran, sengin|xoraki mn|mi^uj|r^azi|peruerdekrau|bedri|xanuu|r^ebab",
+"kundepepuu|nedim|nust|besta|nuuri|namekani mn|kundepepuu|m",
+"terazuu|terazuu|s^ui^ni nustn|r^emzi|s^ui^ni nustn|merdan|ne|nust|nedim|terazuu|m",
+"zur^na|zur^na|merzuuq|qapqap|qapqapi mn|qapqap|dina|qapqap|r^emzi|zur^na|q",
+"qedri|qedri|bepi^s^i keut|mangakani <i^me|hel^sta|nedim|xanuui mn|nzik|zur^nai mn|nerm",
+"qedduuri (nau)|qedduuri|bazrgani <auris^m|qedri|peruerdei krdin|nuuri|kutal^ fros^|r^ezzuuq|li^ida|dergai <i^me|terazuu|qepan|qedduuri|s^edde",
+"meimuun|r^amz (nau)|hat|le __ _eue|xanuui <i^me|ti^per^i|mazn (nau)|le __ _eue|r^i^gai <i^me|qadr (nau)|mes^qi krd be |bazi mn|denduuk|meured|meimuun|q",
+"urc^|zengezore|r^es^ol^e|brnc|henar|heste|nuuri|serdan bke|munir|murad|ber^i^ueber|betuana|urc^",
+"taqc^ke|taqc^ke|ms^k|gund|le __ heie|xanuui|mufid (nau)|ms^k|menaf (nau)|uestai pemo|hejar|ferid (nau)|hel^at|le|xanuui|munif (nau)|r^edif (nau)|haur^i^|faruq (nau)|feriq (nau)|hunermend|betuana|taqc^ke|f",
+"paqle|paqle|fil|le __ heie|zenbil|nebil (nau)|paqle|guti|bedil (nau)|zaml|dukandar|le __ heie|mal^|nadr (nau)|bermil|paqle|l",
+"bulbul(i)|lebib (nau)|bulbul(i)|lebib|lebid (nau)|le __ ue|lubnan|ueri gi^r^a|lebib|bermili mn|bulbul|h^aci leqleq",
+"pos^ak, clk|pos^ak, clk|bal^exane, xanuu|<au|bor^i|mesine, <aur^i^j|kerui^s^k|bauki|<emin|uesta|uisti|<edib|mesine, <aur^i^j|<au|baukm|fermani pi^krdm|ke|bxui^nm|pos^ak, clk|<_",
+"s^al^(i)|daikm|s^al^(i)|daikm|s^in|le __ heie|defr, qap|munib (nau)|<au|xui^ndieue|<edib|destman pi^krd|bxui^nineue|bxui^neue|bxui^neue|lepi^s^ mn|daik(i)|<emir|le __ e|heuli^r|demeui^t|ke|serdani bkem|<emin",
+"bir|<au(i)|biri <i^me|sard|r^a<f (nau)|serkrde|le __ e|heuli^r|<aui mn|le __ e|qapi mn|kem|fa<z (nau)|nziktr(e)|le|fa<q (nau)|bir|<_",
+"ber^uu|ber^uu|ps^ile|mraui|kerpuuc^, xs^t|s^emendefer|petate|le __ heie|qap(i)|tarq (nau)|ber^uu|bazi <i^me|fr^i|le __ <eue|xanuu(i)|talb|lutfi (nau)|dauai krd|dehol^ekanman|ber^uu|t^",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"mang (eke)|bes^euq(e)",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"pencere",
+"kursi|(kursi)ieki|s^kau|le|mal^i mn|(berani^k)heie|kerim|le|(kerkuk)e|supas|boto|<ei|kemal|nuusit|nusraueke|herueku|gutm|bot(pi^t)",
+"dukan|(dukan)i|(seuze fros^)eke|segi^k|(seg)i|(s^uan)eke|xuardm|(tri^)ieke|hemuuman|dexoin|(hencir)eke",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"r^oj (eke)|derkeutuu (e)",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"das",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"ps^ilei mn",
+"",
+"kotaii|pertuuk (eke)"
+],
+[
+"",
+"bit|bit|bit|bit",
+"biut|bit|biut|bit|biut|||||",
+""
+],
+[
+"",
+"house|house|house|house",
+"houses|house|houses|house|houses|worm|worm|house|worm|houses",
+"two houses|two houses|two houses|fire|fire|light|two houses|n",
+"young brother|worm|young brother|young brother|worm|house|two houses|houses",
+"food|food|young brother|food|Zoozoo (name)|house|houses|fire|light|food|z",
+"Noori (name)|Razi (name)|Noori (name)|(both) visited me|Noori (name)|i",
+"",
+"",
+"",
+"Dina",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"Qedri",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"oak",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"the moon|(is) shining",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"window",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"the sun|(is) rising",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"sickle",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"my cat",
+"",
+"end of|the book"
+]
+];
 
 class WordTootip extends HTMLElement{
   constructor(){
@@ -1169,7 +1169,7 @@ class WordTootip extends HTMLElement{
       let k=parseInt(k0);
       var tt=ttl==0?"||||||||||||||||||||":tta[ttl][i];
       var ttwa=tt.split("|");
-      // console.log(id,i,k,ttwa);
+      console.log(id,i,k,ttwa);
       var tt=document.createElement('t-t');
       tt.setAttribute("id", "t"+k);
       let mn=ttwa[k];
