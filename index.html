@@ -121,6 +121,10 @@ color:#00f;
 .green{
 color:#0f0;
 }
+.orange{
+color:#f80;
+}
+
 h2{
 font-size:20px;
 width:100%;
@@ -323,8 +327,8 @@ const la=[
 "b~`ir| b~`ir& n&`man #s~`id i~l`~b& m~`~ s~`dun # l~m`an t~l`~b& m~`~ s&`ad # n~`@im `ad~ m@n u~da`@ naf@` # qal~t m&`~z$~z `@nd~ u~da`@ naf@`: # a~lu~da` a~lu~da` ia `~zizi: naf@`| b~`ir # `_",
 "aas| aas, a~laas # aaba>, a~laaba> # q~r~a^~t aamal& a:lq&raan~ # qal~ a:laaba>& : aamin, aamin| aas # aa",
 "m~r`i$:| musi$: i~r`i$: a:lm@`zi$: fi: a:lm~r`i$: # a@li$: m~ti$: i~bqi$: a:lb~`ir& `~li$: a:lt$~l$@? # i~bqi$: alb~`ir& `~li$: a:lt$~l$@ a@li$: a:lm~sa>@ # m~n t^~ui$: r@da<i:? s~lmi$: t^~u~t r@da<i: # m&ni$: a~qui$: m@n slui$:| mr`i$: # i$:",
-"t^~rbus^| a~lf~r$as^ f~r~s^~ a:lf@ras^ # a~ln$~q$as^& n~q~s^~ a:lq@mas^ # a~ln$~qs^& n~fis&:, t~`is^& i~d& a:ln$~qas^@ # i~`is^ t~`is^ ian~q$as^| t^rbus^ # s^",
-"s^~`ir| s^~`ir # m@ns^ar # m@s^m@s^ # a@s^t~ri$: b~s^ir s^~rab~ a:lr$&m$an # s^~`lan `~t^s^an s^~r@b~ a:lma>~ # a~ls^$&rt^i:$& fi: s^ar@`@ a:lr$~s^id| s^`ir # s^_",
+"t^~rbus^| a~lf~r$as^ f~r~s^~ a:lf@ras^ # a~ln$~q$as^& n~q~s^~ a:lq@mas^ # a~ln$~qs^& n~fis&:, t~`is^& i~d& a:ln$~qas^@ # i~`is^ t~`is^ ia n~q$as^| t^rbus^ # s^",
+"s^~`ir| s^~`ir, m@ns^ar, m@s^m@s^ # a@s^t~ri$: b~s^ir s^~rab~ a:lr$&m$an # s^~`lan `~t^s^an, s^~r@b~ a:lma>~ # a~ls^$&rt^i:$& fi: s^ar@`@ a:lr$~s^id| s^`ir # s^_",
 "a^&stad:| a^&stad:, t~lamid: # u~q~f~ m&nd:@r a^~mam~ a:la^&stad: # n~d:ir i~d:uq& a:l`~s~l # a~l`~s~l& l~d:id:&: # m&nd:@r i~t^r&d& a:ld:$&bab # a~ld:$&bab& m~d:mum&:| a^stad: # d:",
 "nara~: nar@:| r~a^~ina nara~:, r~f~`na `~l~ma~: # a@s^t~ri$: m&nd:@r u~r~qa~: u~q~l~ma~: # n~l`~b& u~n~zdad& n~s^at^a~: # nar@: # a^~min i~rmi: a:l~bl$ut^~ fi: nar@: # r~a^~it& a^~rn~ba~: f~uq~ t~l$@:| nara~: # ~:",
 "s^&b$ak| s^&b$ak, dik # `id&k m&bar~k iam~bruk # u~ `id&k~ ia mal@k # m~bruk # s~m$ak&: i~bi`& a:ls$~m~k~ # a~ld$ik& f~r~$ m@n dar@ mal@k # a@rf~` i~d~k~, lat~fr&k `~in~k~| s^bak # k",
@@ -630,8 +634,11 @@ function toc(){
  var t=eng_to_kur(ta[0]);
  var jk=eng_to_kur(j+"");
  let c="";
- const al=[6,27,30,34,44,45,48,53,56,58,66,71,75];
+ const ac=[6,27,34,44,53,56];
+ const al=[30,45,48,58,66,71,75];
+//  const ac=[6,27,30,34,44,45,48,53,56,58,66,71,75];
  const ad=[15,21,22,23,31,49,57];
+ if(ac.includes(j)) c="orange";
  if(al.includes(j)) c="red";
  if(ad.includes(j)) c="green";
  tt=`<b class=${c}>${jk}</b>. <a onclick='goto(${j})'>${t}</a><br>`;
@@ -719,7 +726,7 @@ function add_tags(t){
    var w=wa[j];
    var tw="";
    var lc=w.slice(-1);
-   if(lc=="."|| lc=="،"|| lc=="!"|| lc=="؟"|| lc=="|") {
+   if(lc=="."|| lc=="،"|| lc=="!"|| lc=="؟"|| lc==":"|| lc=="|") {
      w=w.slice(0,-1);
     //  tw="<a id=w"+i0+k0+" onclick=ps('"+i0+k0+"')>"+w+"</a>"+lc+" ";
      tw=`<w-d id=${i0+k0} onclick=ps('${i0}${k0}')>${w}</w-d>`+lc+" ";
@@ -1029,16 +1036,16 @@ var tta=[
 "ms^ki biaban|r^uupos^, mask|xuah^afizi, mal^<auaii|kuuleke, kudi|fros^iar(eke)|fros^ti|kur^eke|begui^i krd|menna` (nau)|c^apkar(i^ki)|betuana(ie)|cutiareke, c^i^nereke|dec^i^ni^t|le|h^efte(i)|dahatuu|ms^ki biaban|`",
 "tri^|hi^s^uu(i)|tri^|`umran (nau)|fi^ri krd|`ednan (nau)|r^eh^eti|naf`|qutabi(i^ki)|gui^r^aiel^(e)|c^ilkedar(i^ki)|barik|r^eh^eti(i^ki)|besuud|s^uaneke|r^i^gri krd, neihi^s^t|ti^per^in(i)|mi^gel, gar^aneke|tri^|`_",
 "h^us^tr|h^us^tr(i)|nu`man (nau)|se`id (nau)|iari dekat|legel^|se`duun (nau)|lem`an (nau)|iari dekat|legel^|su`ad (nau)|ne`im (nau)|ger^aieue, hateue|le|xuah^afizi|naf` (nau)|guti|mu`ezzez (nau)|le kati|xuah^afizi|naf`|xuah^afiz|xuah^afiz|<ei|<azizm, xos^euistm|naf`|h^us^tr|`_",
-"",
-"",
-"",
-"",
+"muurtk|muurtk|muurtkeke|baukan|baukekan|xui^ndi|<amal|qur<an(eke)|guti|baukekan|<amin|<amin|muurtk|<a",
+"leuer^ga|musa (nau)|deleuer^i^ni^t|bznekan|le __ ga|leuer^|ta|kei|demi^ni^teue|h^us^treke|leser|grdeke|demi^ni^teue|h^us^treke|leser|grdeke|ta|<i^uare|ki^|qedi krd|clkm|selma|qedi krd|clkm|muna|behi^ztr(e)|le|selua|leuer^ga|a",
+"serpos^|ci^r^axereke|r^aixst|ci^gake|nexs^kareke|nexs^i krd|kutal^eke|nexs^eke|benrx(e)|bji|dest(i)|nexs^kareke|bji|bji|<ei|nexs^kar|serpos^|s^",
+"co|co|ms^ar|qeisi|kr^i|bes^ir (nau)|s^erbet(i)|henar(eke)|s^e`lan (nau)|ti^nuu|xuardieue|<au(eke)|poliseke|le __ e|s^eqam(i)|r^es^id(eke)|co|s^_",
 "",
 "",
 "pencere",
 "kursi(i^k)|kursi(i^ki)|s^kau|le __ heie|mal^i mn|beran(i^k)|kerim|le __ e|kerkuk|supas|bo to|<ei|kemal (nau)|nuusit|nusraueke|heruekuu|gutm|bo to (pi^t)|kursi|k",
 "dukan|dukan(i)|seuzefros^eke|seg(i^k)|seg(i)|s^uaneke|xuardm|tri^ieke|hemuuman|dexoin|hencireke",
-"<ah_|<ah_|le|<azar(eke)|zor <au|iarmeti dedat|faruq (nau)|bauki|u|ges^t dekat|legel^i|bo|ul^ati|dexuat|le|xorakekei|le|ges^tekei|nebih_ (nau)|bo <eu (heieti)|mam(i^k)|serdanm krd|pi^s^|ges^tekei|<ah_|h_",
+"<ah_|<ah_|le|<azar(eke)|zor <au|iarmeti dedat|faruq (nau)|bauki|u|ges^t dekat|legel^i|bo|ul^ati (ul^ali <eu)|dexuat|le|xorakekei|le|ges^tekei|nebih_ (nau)|bo <eu (heieti)|mam(i^k)|serdanm krd|pi^s^|ges^tekei|<ah_|h_",
 "pepuu|hauen|heua|ps^ile|r^ois^t|tahir (nau)|bo|bi^staneke|li^i krdeue|has^m (nau)|gul^(i)|henareke|<aia|dezanit|(bo) kui^|r^ois^t|fa<iq (nau)|r^ois^t|fa<iq|bo|xanuu(i)|hilal (nau)|pepuu|h_",
 "cuanuu|serdanm krd|daikm|gutm|bo <eu (pi^i)|r^ojt|xos^, bexteuer|guti|herueha|r^ojt|to(s^)|bexi^r bi^i|u||<ei|<azizm, xos^euistm|cuanuu|h_",
 "s^uus^ei merekeb|bazne|prd|fa<ize (nau)|kc^(i^ke)|fr^okeke|defr^i^t|seferi krd|selim|be <otombi^l(i^k)|katjmi^r(i^k)|xui^ndman|le|katjmi^r(eke)|h^eutemin(eke)|lebirm krd|defter(i)|ui^ne, nigar|le|qutabxane(eke)|c^engal^|keuc^k|qutuu|s^uus^ei merekeb|t",
