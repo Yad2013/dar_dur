@@ -52,7 +52,7 @@ direction:rtl;
 line-height:180%;
 }
 #tt{
-padding-top:20px;
+padding-top:30px;
 }
 #bd{
 text-align:right;
@@ -108,7 +108,27 @@ background:#ddd;
 .pressed{
 color:#f00;
 }
-#dau, #fnb{
+#dau{
+font-size:30px;
+line-height:30%;
+}
+#fnb_0{
+font-family:amiri;
+font-size:30px;
+line-height:30%;
+}
+#fnb_1{
+font-family:noto;
+font-size:30px;
+line-height:30%;
+}
+#fnb_2{
+font-family:simplified;
+font-size:30px;
+line-height:30%;
+}
+#fnb_3{
+font-family:naskh;
 font-size:30px;
 line-height:30%;
 }
@@ -424,7 +444,7 @@ const PLAY="<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 2
 var i=1;
 var rd="y";
 var red=1;
-var fnt=0; // font 0: amiri 1: noto 2: simplified 
+var fnt=3; // font 0: amiri 1: noto 2: simplified 3: naskh
 var ttl=1; // tooltip language 0:none 1: kur 2: arab 3: eng
 var hlf=0;
 var dcr=1;
@@ -478,8 +498,8 @@ function get_more(){
   document.getElementById("play").innerHTML=PLAY;
   var dau=red==0?"دور":"د<w-d class=red>و</w-d>ر";
   var hnw=`<button id=dau onclick="highlight()">${dau}</button`;
-  const ddd="دار";
-  var fnb=`<button id=fnb onclick="change_font()">${ddd}</button`;
+  const ddd="دُبٌ";
+  var fnb=`<button id=fnb_0 onclick="change_font(0)">${ddd}</button> <button id=fnb_1 onclick="change_font(1)">${ddd}</button> <button id=fnb_2 onclick="change_font(2)">${ddd}</button> <button id=fnb_3 onclick="change_font(3)">${ddd}</button>`;
   let voice="<button class=red onclick=change_ttl(1)>Kur</button> <button onclick=change_ttl(3)>Eng</button> <button onclick=change_ttl(0)>None</button>";
   if(ttl==3) voice="<button onclick=change_ttl(1)>Kur</button> <button class=red onclick=change_ttl(3)>Eng</button> <button onclick=change_ttl(0)>None</button>";
   if(ttl==0) voice="<button onclick=change_ttl(1)>Kur</button> <button onclick=change_ttl(3)>Eng</button> <button class=red onclick=change_ttl(0)>None</button>";
@@ -668,7 +688,7 @@ document.addEventListener("keydown",event=>{
   if (event.key==="m") if(document.getElementById("ftb").style.bottom=="4px") document.getElementById("ftb").style.bottom="-50px"; else document.getElementById("ftb").style.bottom="4px";
   
   if (event.key==="r") {if(red==0) red=1; else red=0; localStorage.setItem("DARA_LESSON_RED", red); load_page();}
-  if (event.key==="f") change_font();
+  if (event.key==="f") change_font(-1);
   if (event.key==="t") change_ttl(-1);
   if (event.key==="d") toggle_diacritics();
 
@@ -700,15 +720,17 @@ function voice(v){
   load_page();
   }
 
-function change_font() {
+function change_font(n) {
   fnt++;
-  if(fnt>3) fnt=0; 
+  if(fnt>3) fnt=0;
+  if(n>-1) fnt=n;
   localStorage.setItem("DARA_LESSON_FONT", fnt);
   load_page();
   }
 
 function change_ttl(n) {
   ttl++;
+  if(ttl==2) ttl++;
   if(ttl>3) ttl=0;
   if(n>-1) ttl=n;
   // localStorage.setItem("DARA_LESSON_FONT", fnt);
@@ -1020,7 +1042,7 @@ var tta=[
 "taqc^ke|taqc^ke|ms^k|ladi^|le __ heie|xanuu(i)|mufid (nau), besuud|ms^k|menaf (nau)|uestai pemo|hejar|ferid (nau)|hel^at|le|xanuu(i)|munif (nau)|r^edif (nau)|haur^i^|faruq (nau)|feriq (nau)|hunermend|betuana|taqc^ke|f",
 "paqle|paqle|fil|le __ heie|zenbil|nebil (nau)|paqle|guti|bedil (nau)|zaml|seuzefros^, dukandar|le __ heie|mal^(i)|nadr (nau)|bermil|paqle|l",
 "bulbul(i)|lebib (nau)|bulbul(i)|lebib|lebid (nau)|le __ ue|lubnan|ueri gi^r^a|lebib|bermili mn|bulbul|h^aci leqleq",
-"pos^ak, clk|pos^ak, clk|bal^exane, xanuu|<au|bor^i|mesine, <aur^i^j|kerui^s^k|bauki|<emin|uesta|uisti|<edib|mesine, <aur^i^j|<au|baukm|fermani pi^krdm|ke|bxui^nm|pos^ak, clk|<_",
+"pos^ak, clk|pos^ak, clk|bal^exane, xanuu|<au|bor^i|mesine, <aur^i^j|kerui^s^k|bauki|<emin (nau), destpak|uesta|uisti|<edib|mesine, <aur^i^j|<au|baukm|fermani pi^krdm|ke|bxui^nm|pos^ak, clk|<_",
 "s^al^(i)|daikm|s^al^(i)|daikm|s^in|le __ heie|defr, qap(i)|munib (nau)|<au|xui^ndieue|<edib|destman pi^krd|bxui^nineue|bxui^neue|bxui^neue|lepi^s^ mn|daik(i)|<emir|le __ e|heuli^r|demeui^t|ke|serdani __ bkem|<emin",
 "bir|<au(i)|biri <i^me|sard|r^a<f (nau)|serkrde|le __ e|heuli^r|<aui mn|le __ e|qapi mn|kem|fa<z (nau)|nziktr(e)|le|fa<q (nau)|bir|<_",
 "ber^uu|ber^uu|ps^ile|mraui|kerpuuc^, xs^t|s^emendefer|petate|le __ heie|qap(i)|tarq (nau)|ber^uu|bazi <i^me|fr^i|le __ <eue|xanuu(i)|talb|lutfi (nau)|dauai __ krd|dehol^ekani <i^me|ber^uu|t^",
@@ -1037,8 +1059,8 @@ var tta=[
 "ms^ki biaban|r^uupos^, mask|xuah^afizi, mal^<auaii|kuuleke, kudi|fros^iar(eke)|fros^ti|kur^eke|begui^i krd|menna` (nau)|c^apkar(i^ki)|betuana(ie)|cutiareke, c^i^nereke|dec^i^ni^t|le|h^efte(i)|dahatuu|ms^ki biaban|`",
 "tri^|hi^s^uu(i)|tri^|`umran (nau)|fi^ri krd|`ednan (nau)|r^eh^eti|naf`|qutabi(i^ki)|gui^r^aiel^(e)|c^ilkedar(i^ki)|barik|r^eh^eti(i^ki)|besuud|s^uaneke|r^i^gri krd, neihi^s^t|ti^per^in(i)|mi^gel, gar^aneke|tri^|`_",
 "h^us^tr|h^us^tr(i)|nu`man (nau)|se`id (nau)|iari dekat|legel^|se`duun (nau)|lem`an (nau)|iari dekat|legel^|su`ad (nau)|ne`im (nau)|ger^aieue, hateue|le|xuah^afizi|naf` (nau)|guti|mu`ezzez (nau)|le kati|xuah^afizi|naf`|xuah^afiz|xuah^afiz|<ei|<azizm, xos^euistm|naf`|h^us^tr|`_",
-"muurtk|muurtk|muurtkeke|baukan|baukekan|xui^ndi|<amal|qur<an(eke)|guti|baukekan|<amin|<amin|muurtk|<a",
-"leuer^ga|musa (nau)|deleuer^i^ni^t|bznekan|le __ ga|leuer^|ta|kei|demi^ni^teue|h^us^treke|leser|grdeke|demi^ni^teue|h^us^treke|leser|grdeke|ta|<i^uare|ki^|qedi krd|clkm|selma|qedi krd|clkm|muna|behi^ztr(e)|le|selua|leuer^ga|a",
+"muurtk|muurtk|muurtkeke|baukan|baukekan|xui^ndi|<amal (nau)|qur<an(eke)|guti|baukekan|<amin|<amin|muurtk|<a",
+"leuer^ga|musa (nau)|deleuer^i^ni^t|bznekan|le|leuer^ga|ta, heta|kei|demi^ni^teue|h^us^treke|leser|grdeke|demi^ni^teue|h^us^treke|leser|grdeke|ta|<i^uare|ki^|qedi krd|clkm|selma|qedi krd|clkm|muna|behi^ztr(e)|le|selua|leuer^ga|a",
 "serpos^|ci^r^axereke|r^aixst|ci^gake|nexs^kareke|nexs^i krd|kutal^eke|nexs^eke|benrx(e)|bji|dest(i)|nexs^kareke|bji|bji|<ei|nexs^kar|serpos^|s^",
 "co|co|ms^ar|qeisi|kr^i|bes^ir (nau)|s^erbet(i)|henar(eke)|s^e`lan (nau)|ti^nuu|xuardieue|<au(eke)|poliseke|le __ e|s^eqam(i)|r^es^id(eke)|co|s^_",
 "mamosta|mamosta|qutabian|r^auesta|munzr (nau)|lepi^s^|mamostake|nezir (nau)|tam dekat|henguin(eke)|henguin(eke)|betam(e)|munzr|der dekat|mi^s^(eke)|mi^s^(eke)|neuistrau, gleiibar(e)|mamosta|d:",
@@ -1075,7 +1097,7 @@ var tta=[
 "jmarekan|6-10|6.|kr^iman|s^es^|prteqal^(an)|7.|dauaman krd|le|naneuaeke|h^eft|kuli^re, semuun|8.|xuardi|`ednan|hes^t|si^u(an)|9.|pi^i dam|no|hermi^(an)|10.|xuastm le (pi^i xuastm)|haukarm|de|kti^b(an)",
 "ps^ilei mn|ps^ilei mn|bc^uuke|u|naui|nemire(ie)|muui, tuuki|cuan(e)|klki|dri^j(e)|iari krdni| dl^xos^ dekat|u|<eu|bo mn|ueku si^berm (e)|be diar dexat|karameii(eke)|ta, bo <euei|r^au bkat|ms^k|",
 "iari krd|iusf (nau)|iari krd|iusf|legel^|segeke|dexuat|beraneke|gjugia(i)|baxc^eke|suar buu|tariq (nau)|gui^dri^jekei|r^ai krd|ps^ileke|beduai|ms^keke|gui^r^aiel^i dekat|`isam (nau)|bauki|u|bauki|xos^i deui^t|zor|iarmeti dedat|misal (nau), nmuune|daiki|le|mal^(eke)|bl^au dekateue|clubergekan|leser|pet(eke), r^ste|",
-"kotaii(i)|pertuuk(eke)|to|<i^sta|detuanit|ke|bxui^niteue|her|nuusin(i^k)|be zmani|`erebi|c^unke|hemuu|<euei|<eue|nuusrau(a)|pi^khatuu(e)|le|<em|pit(ek)  an(e)|u|bzui^n(ek)an(e)|<euei ke|fi^ri buui|piroze|"
+"kotaii(i)|pertuuk(eke)|to|<i^sta|detuanit|ke|bxui^niteue|her|nuusin(i^k)|be zmani|`erebi|c^unke|hemuu|<euei|<eue|nuusrau(e)|pi^khatuu(e)|le|<em|pit(ek)  an(e)|u|bzui^n(ek)an(e)|<euei ke|fi^ri buui|piroze|"
 ],
 [
 "",
@@ -1189,7 +1211,7 @@ class WordTootip extends HTMLElement{
       let k=parseInt(k0);
       var tt=ttl==0?"||||||||||||||||||||":tta[ttl][i];
       var ttwa=tt.split("|");
-      console.log(id,i,k,ttwa);
+      // console.log(id,i,k,ttwa);
       var tt=document.createElement('t-t');
       tt.setAttribute("id", "t"+k);
       let mn=ttwa[k];
