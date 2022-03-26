@@ -844,8 +844,8 @@ function play_lesson_recursive(){
   if (k>0) kp=k-1;
   var k1=kp.toString();
   var k1=k1.padStart(2,"0");
-  document.getElementById("w"+i0+k1).style.color="";
-  document.getElementById("w"+i0+k0).style.color="#f00";
+  document.getElementById(i0+k1).style.color="";
+  document.getElementById(i0+k0).style.color="#f00";
   ps(""+i0+k0);
   var syl=get_sylables(wa[k]);
   if(syl>2) tp=1800;
@@ -1136,7 +1136,7 @@ var tta=[
 "dress|dress|building|water|tube|jug|rabbit|father (of)|Amin (name)|builder|wanted|Adib (name)|jug|water|my father|ordered me|to|read|dress|hamza",
 "shawl (of)|my mother|shawl (of)|my mother|blue|in|plate (of)|Muneeb (name)|water|read|Edeeb|we strarted|read|read|read|in front of me|mother (of)|Emeer|in|Erbil|I want|to|visit|Emeen",
 "well|water (of)|our well|cold|Raaif (name)|leader|in|Erbil|my water|in|my plate|little|Faaiz (name)|(is) closer|to, from|Faaiq (name)|well|hamza",
-"oak|oak|cat|duck|brick|train|potato|in|plate (of)|Tariq (name)|oak|our hawk|flew|from|house (of)|Talib|Lutfi (name)|asked for|our drums|oak|t",
+"oak|oak|cat|duck|brick|train|potato|in|plate (of)|Tariq (name)|oak|our hawk|flew|from|house (of)|Talib|Lutfi (name)|asked for, requested|our drums|oak|t",
 "tak(i^k)|s^emendefer(i^k)|ua di^t|<i^me hemane|baz(i^k)|bazeke heieti|denduuk(i^k)|xoraki <i^me|kem(e)|tarq|pzis^k(e)|r^i^gai <i^me|nzik(e)|le pi^s^ <i^me heie|derga(ii^ki)|xos^|me<muun|serkrde(ii^ki)|betuana(ie)|lutfi|dehol^jen(e)|tak(i^k)",
 "gul^(i^k)|gul^(i^k)|qaz(i^k)|belem(i^k)|lutfi|r^auesta|leps^t|belemi <i^me|uelid (name)|dri^jtr(e)|le|meruan (name)|ua<l (name)|r^auestau(e)|leps^t|uidad (name)|zur^na(i)|meuluud (name)|le|ka`^ez",
 "dest|dest|ziad (name)|zor bal^nde|deieui^t|zeiduun (name)|bal^ndekan(i)|zeidan (name)|denui^t|ziad|le|xanuu(i)|<eiiuub|Qedri|dezani^t|le kui^|denui^t|ziad|leni^uan|xanuui <i^me|u|xanuu(i)|zeineb (name)|gor^epan(i^k heie)|uelid|fr^okeuan(i^ke)|defr^i^t",
